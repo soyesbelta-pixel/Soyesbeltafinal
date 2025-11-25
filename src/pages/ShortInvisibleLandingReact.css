@@ -1,0 +1,1175 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800;900&family=DM+Serif+Display:wght@400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Color Variables - Typography System */
+:root {
+  --choco: #2C1E1E;
+  --choco-80: #3B2B2B;
+  --choco-60: #6A5957;
+  --choco-45: #9C8E8B;
+  --coral: #F88379;
+  --beige: #D7BFA3;
+  --marfil: #FBF7F4;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body bg-white overflow-x-hidden;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Typography Hierarchy for Light Backgrounds */
+  h1 {
+    color: var(--choco);
+    font-weight: bold;
+  }
+
+  h1 .accent {
+    color: var(--coral);
+  }
+
+  h2, h3 {
+    color: var(--choco-80);
+    font-weight: bold;
+  }
+
+  .lead {
+    color: var(--choco-60);
+  }
+
+  .note {
+    color: var(--choco-45);
+  }
+}
+
+@layer utilities {
+  /* Carousel Animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-350px * 10 - 1.5rem * 10));
+    }
+  }
+
+  .animate-scroll {
+    /* animation: scroll 80s linear infinite; */ /* DISABLED - manual scrolling only */
+  }
+
+  .animate-scroll:hover {
+    /* animation-play-state: paused; */ /* DISABLED */
+  }
+
+  /* Word Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .word-animate {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+
+  /* Scroll Fade In Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-on-scroll {
+    opacity: 0;
+  }
+
+  .fade-in-on-scroll.visible {
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  /* WhatsApp Button Pulse */
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .whatsapp-btn {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Gradient Background */
+  .gradient-chocolate-beige {
+    background: linear-gradient(to bottom right, #D7BFA3, #2C1E1E);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FBF7F4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D7BFA3;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2C1E1E;
+}
+
+/* Manual Carousel Scrolling */
+.carousel-container {
+  cursor: grab;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+.carousel-container:active {
+  cursor: grabbing;
+}
+
+.carousel-card {
+  scroll-snap-align: start;
+  scroll-snap-stop: normal;
+}
+
+/* Table Styles */
+tbody tr:hover {
+  background-color: rgba(215, 191, 163, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+/* Form Inputs */
+input[type="number"]:focus {
+  outline: none;
+  border-color: #F88379;
+  box-shadow: 0 0 0 3px rgba(248, 131, 121, 0.1);
+}
+
+/* Responsive Carousel */
+@media (max-width: 768px) {
+  .carousel-card {
+    width: 300px !important;
+  }
+
+  /* @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-300px * 10 - 1.5rem * 10));
+    }
+  } */ /* DISABLED - manual scrolling only */
+}
+
+/* ========================================
+   VOICE ASSISTANT ORB STYLES
+   ======================================== */
+
+/* Orbe base */
+.orb-button {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+}
+
+@media (min-width: 768px) {
+  .orb-button {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .orb-button {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+.orb-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.orb-button:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.orb-button:not(:disabled):active {
+  transform: scale(0.95);
+}
+
+/* Orbe inner (contenedor icono) */
+.orb-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.orb-icon {
+  width: 32px;
+  height: 32px;
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .orb-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ========================================
+   ESTADOS DEL ORBE
+   ======================================== */
+
+/* IDLE - Reposo */
+.orb-button.idle {
+  background: linear-gradient(135deg, #E8967E 0%, #D27C5A 100%);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 30px rgba(210, 124, 90, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* CONNECTING - Conectando */
+.orb-button.connecting {
+  background: linear-gradient(
+    -45deg,
+    #E8967E,
+    #F5EFE7,
+    #E8967E,
+    #D27C5A
+  );
+  background-size: 400% 400%;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 50px rgba(232, 150, 126, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  animation: rotate-gradient 2s ease infinite;
+}
+
+/* ACTIVE - Escuchando */
+.orb-button.active {
+  background: linear-gradient(135deg, #D27C5A 0%, #C9B7A5 100%);
+  border-color: rgba(255, 215, 120, 0.5);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    0 0 60px rgba(210, 124, 90, 0.8),
+    0 0 100px rgba(232, 150, 126, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* ERROR - Error */
+.orb-button.error {
+  background: linear-gradient(135deg, #EF4444 0%, #FCA5A5 100%);
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 40px rgba(239, 68, 68, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: shake 0.5s ease-in-out;
+}
+
+/* ========================================
+   ANIMACIONES PRINCIPALES
+   ======================================== */
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      0 0 50px rgba(210, 124, 90, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes rotate-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      0 0 60px rgba(210, 124, 90, 0.8),
+      0 0 100px rgba(232, 150, 126, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      0 0 80px rgba(210, 124, 90, 1),
+      0 0 120px rgba(232, 150, 126, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* ========================================
+   ONDAS CONCÉNTRICAS (CONNECTING)
+   ======================================== */
+
+.orb-ripple {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(232, 150, 126, 0.6);
+  animation: ripple 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   ONDAS DE AUDIO (ACTIVE)
+   ======================================== */
+
+.audio-bars-container {
+  pointer-events: none;
+  z-index: 5;
+}
+
+.audio-bar {
+  width: 4px;
+  height: 40px;
+  margin: 0 3px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  animation: audio-wave 0.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes audio-wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1.5);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   PARTÍCULAS FLOTANTES
+   ======================================== */
+
+.particles-container {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: float-particle 3s ease-in-out infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(
+      calc(-50% + var(--tx)),
+      calc(-50% + var(--ty))
+    ) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .audio-bar {
+    width: 3px;
+    height: 30px;
+    margin: 0 2px;
+  }
+
+  .particle {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* ========================================
+   FLOATING VOICE BUTTON - SIRI STYLE
+   ======================================== */
+
+/* Botón flotante con animación de respiración */
+.voice-orb-float {
+  animation: float-breathe 3s ease-in-out infinite;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes float-breathe {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      0 0 50px rgba(210, 124, 90, 0.6);
+  }
+}
+
+.voice-orb-float:hover {
+  animation: float-breathe 3s ease-in-out infinite, pulse-intense 1s ease-in-out infinite;
+}
+
+@keyframes pulse-intense {
+  0%, 100% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 0 30px rgba(210, 124, 90, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.2),
+      0 0 60px rgba(210, 124, 90, 0.8);
+  }
+}
+
+/* Anillos pulsantes */
+.voice-ring-1 {
+  animation: ring-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+.voice-ring-2 {
+  animation: ring-pulse 2s ease-out infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+}
+
+@keyframes ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Tooltip flotante */
+.voice-tooltip {
+  animation: tooltip-fade-in 0.5s ease-out;
+}
+
+@keyframes tooltip-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .voice-orb-float {
+    padding: 12px;
+  }
+
+  .voice-tooltip p {
+    font-size: 0.75rem;
+  }
+}
+/* ================================
+   LANDING PAGE SHORT INVISIBLE
+   Custom Styles for Esbelta
+   ================================ */
+
+/* ================================
+   CAROUSEL ANIMATION
+   ================================ */
+
+/* Carousel animation - DISABLED for manual scrolling only */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* 350px ancho de cada tarjeta + 1.5rem gap = 374px
+           10 testimonios duplicados = 3740px total */
+        transform: translateX(calc(-350px * 10 - 1.5rem * 10));
+    }
+}
+
+.animate-scroll {
+    /* animation: scroll 80s linear infinite; */ /* DISABLED - manual scrolling only */
+}
+
+.animate-scroll:hover {
+    /* animation-play-state: paused; */ /* DISABLED */
+}
+
+/* ================================
+   WORD ANIMATION
+   ================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.word-animate {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ================================
+   SCROLL FADE IN ANIMATION
+   ================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-on-scroll {
+    opacity: 0;
+}
+
+.fade-in-on-scroll.visible {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* ================================
+   GRADIENT BACKGROUNDS
+   ================================ */
+
+.gradient-chocolate-beige {
+    background: linear-gradient(135deg, #3B2F2F 0%, #D7BFA3 100%);
+}
+
+/* ================================
+   PRODUCTS CAROUSEL
+   ================================ */
+
+.products-carousel-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #D7BFA3 #FBF7F4;
+}
+
+.products-carousel-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.products-carousel-container::-webkit-scrollbar-track {
+    background: #FBF7F4;
+    border-radius: 10px;
+}
+
+.products-carousel-container::-webkit-scrollbar-thumb {
+    background: #D7BFA3;
+    border-radius: 10px;
+}
+
+.products-carousel-container::-webkit-scrollbar-thumb:hover {
+    background: #C9B7A5;
+}
+
+.products-carousel {
+    padding: 0 1rem;
+}
+
+.product-card {
+    width: 364px;
+    min-width: 364px;
+}
+
+.product-image-frame {
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 364px;
+    overflow: hidden;
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: 338px;
+        min-width: 338px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-carousel {
+        justify-content: center;
+    }
+}
+
+/* ================================
+   PRODUCT IMAGES
+   ================================ */
+
+.product-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .product-image-frame {
+        height: 312px;
+    }
+}
+
+/* ================================
+   BENEFITS CAROUSEL
+   ================================ */
+
+.benefits-carousel-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #D7BFA3 #FBF7F4;
+}
+
+.benefits-carousel-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.benefits-carousel-container::-webkit-scrollbar-track {
+    background: #FBF7F4;
+    border-radius: 10px;
+}
+
+.benefits-carousel-container::-webkit-scrollbar-thumb {
+    background: #D7BFA3;
+    border-radius: 10px;
+}
+
+.benefits-carousel-container::-webkit-scrollbar-thumb:hover {
+    background: #C9B7A5;
+}
+
+.benefits-carousel {
+    padding: 0 1rem;
+}
+
+.benefit-card {
+    width: 350px;
+    min-width: 350px;
+}
+
+@media (max-width: 768px) {
+    .benefit-card {
+        width: 300px;
+        min-width: 300px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .benefits-carousel {
+        justify-content: center;
+    }
+}
+
+/* ================================
+   BENEFIT IMAGES
+   ================================ */
+
+.benefit-image {
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-image-short {
+    width: 320px;
+    height: 375px;
+    object-fit: cover;
+}
+
+.benefit-image:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .benefit-image {
+        width: 200px;
+    }
+
+    .benefit-image-short {
+        width: 260px;
+        height: 305px;
+    }
+}
+
+/* ================================
+   RESULTS CAROUSEL
+   ================================ */
+
+.results-carousel-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #D7BFA3 #FBF7F4;
+}
+
+.results-carousel-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.results-carousel-container::-webkit-scrollbar-track {
+    background: #FBF7F4;
+    border-radius: 10px;
+}
+
+.results-carousel-container::-webkit-scrollbar-thumb {
+    background: #D7BFA3;
+    border-radius: 10px;
+}
+
+.results-carousel-container::-webkit-scrollbar-thumb:hover {
+    background: #C9B7A5;
+}
+
+.results-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.result-card {
+    width: 420px;
+    min-width: 420px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .result-card {
+        width: 350px;
+        min-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .result-card {
+        width: 300px;
+        min-width: 300px;
+    }
+}
+
+/* ================================
+   RESPONSIVE FOR VERY SMALL SCREENS (≤375px)
+   ================================ */
+
+@media (max-width: 375px) {
+    /* Testimonios */
+    .carousel-card {
+        width: 280px !important;
+        min-width: 280px !important;
+    }
+
+    /* Productos */
+    .product-card {
+        width: 280px !important;
+        min-width: 280px !important;
+    }
+
+    .product-image-frame {
+        height: 280px !important;
+    }
+
+    /* Beneficios */
+    .benefit-card {
+        width: 280px !important;
+        min-width: 280px !important;
+    }
+
+    /* Resultados */
+    .result-card {
+        width: 280px !important;
+        min-width: 280px !important;
+    }
+}
+
+/* ================================
+   TESTIMONIAL VIDEOS
+   ================================ */
+
+.testimonial-video {
+    width: 252px;
+    height: 448px;
+    object-fit: cover;
+}
+
+/* ================================
+   GLOW SHADOW EFFECT
+   ================================ */
+
+.shadow-glow {
+    box-shadow:
+        0 0 25px rgba(255, 200, 100, 0.8),
+        0 0 50px rgba(255, 180, 80, 0.6),
+        0 4px 30px rgba(44, 30, 30, 0.3),
+        inset 0 0 20px rgba(255, 220, 150, 0.1);
+    animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+.shadow-glow-strong {
+    box-shadow:
+        0 0 35px rgba(255, 200, 100, 1),
+        0 0 70px rgba(255, 180, 80, 0.8),
+        0 6px 40px rgba(44, 30, 30, 0.4),
+        inset 0 0 30px rgba(255, 220, 150, 0.2);
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 25px rgba(255, 200, 100, 0.8),
+            0 0 50px rgba(255, 180, 80, 0.6),
+            0 4px 30px rgba(44, 30, 30, 0.3),
+            inset 0 0 20px rgba(255, 220, 150, 0.1);
+    }
+    50% {
+        box-shadow:
+            0 0 40px rgba(255, 200, 100, 1),
+            0 0 80px rgba(255, 180, 80, 0.9),
+            0 6px 40px rgba(44, 30, 30, 0.4),
+            inset 0 0 30px rgba(255, 220, 150, 0.2);
+    }
+}
+
+/* ================================
+   VOICE ASSISTANT ANIMATIONS
+   ================================ */
+
+@keyframes voiceFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes voiceRing1 {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes voiceRing2 {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+.voice-orb-float {
+    animation: voiceFloat 3s ease-in-out infinite;
+}
+
+.voice-ring-1 {
+    animation: voiceRing1 2s ease-out infinite;
+}
+
+.voice-ring-2 {
+    animation: voiceRing2 2s ease-out infinite 0.5s;
+}
+
+/* ================================
+   SOFIA AURORA ORB - NEW DESIGN
+   ================================ */
+
+/* Brand Colors Reference:
+   --rose: #C96F7B
+   --coral: #F88379
+   --beige: #EAD9C8
+   --chocolate: #2C1E1E
+   --chocolate-light: #6D4A40
+*/
+
+/* Aurora Gradient Orb Base */
+.sofia-orb {
+    background: linear-gradient(135deg, #C96F7B 0%, #EAD9C8 50%, #F88379 100%);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.1),
+        0 0 40px rgba(201, 111, 123, 0.3),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+}
+
+/* Sofia Orb Idle State */
+.sofia-orb-idle {
+    animation: sofia-breathe 3s ease-in-out infinite;
+}
+
+@keyframes sofia-breathe {
+    0%, 100% {
+        transform: scale(1);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.1),
+            0 0 40px rgba(201, 111, 123, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        transform: scale(1.03);
+        box-shadow:
+            0 12px 40px rgba(0, 0, 0, 0.15),
+            0 0 60px rgba(201, 111, 123, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Sofia Orb Connecting State */
+.sofia-orb-connecting {
+    background: linear-gradient(
+        -45deg,
+        #C96F7B,
+        #EAD9C8,
+        #F88379,
+        #C96F7B
+    );
+    background-size: 400% 400%;
+    animation: sofia-aurora-rotate 2s ease infinite;
+}
+
+@keyframes sofia-aurora-rotate {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Sofia Orb Active State */
+.sofia-orb-active {
+    animation: sofia-pulse-glow 1.5s ease-in-out infinite;
+}
+
+@keyframes sofia-pulse-glow {
+    0%, 100% {
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.15),
+            0 0 60px rgba(201, 111, 123, 0.6),
+            0 0 100px rgba(248, 131, 121, 0.3),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+    50% {
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, 0.15),
+            0 0 80px rgba(201, 111, 123, 0.8),
+            0 0 120px rgba(248, 131, 121, 0.5),
+            inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    }
+}
+
+/* Sofia Audio Bars */
+.sofia-audio-bar {
+    background: rgba(255, 255, 255, 0.85);
+    border-radius: 2px;
+    animation: sofia-audio-wave 0.8s ease-in-out infinite;
+    transform-origin: center;
+}
+
+@keyframes sofia-audio-wave {
+    0%, 100% {
+        transform: scaleY(0.4);
+        opacity: 0.5;
+    }
+    50% {
+        transform: scaleY(1.2);
+        opacity: 1;
+    }
+}
+
+/* Sofia Ripple Effect */
+.sofia-ripple {
+    border: 2px solid rgba(201, 111, 123, 0.5);
+    animation: sofia-ripple-expand 2s ease-out infinite;
+}
+
+@keyframes sofia-ripple-expand {
+    0% {
+        transform: scale(0.9);
+        opacity: 0.5;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+/* Product Showcase Overlay */
+.product-overlay-backdrop {
+    background: rgba(44, 30, 30, 0.4);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+}
+
+/* Message Bubbles */
+.sofia-bubble-user {
+    background-color: #EAD9C8;
+    color: #2C1E1E;
+    border-radius: 16px 16px 4px 16px;
+}
+
+.sofia-bubble-assistant {
+    background-color: #FFFFFF;
+    color: #2C1E1E;
+    border: 1px solid #EDE9E6;
+    border-radius: 16px 16px 16px 4px;
+}
+
+/* Header Avatar Gradient */
+.sofia-avatar {
+    background: linear-gradient(135deg, #C96F7B 0%, #EAD9C8 50%, #F88379 100%);
+    box-shadow: 0 4px 15px rgba(201, 111, 123, 0.3);
+}
+
+/* CTA Button Gradient */
+.sofia-cta-button {
+    background: linear-gradient(135deg, #C96F7B 0%, #F88379 100%);
+    transition: all 0.2s ease;
+}
+
+.sofia-cta-button:hover {
+    transform: scale(1.03);
+    box-shadow: 0 10px 30px rgba(201, 111, 123, 0.4);
+}
+
+.sofia-cta-button:active {
+    transform: scale(0.98);
+}
+
+/* Background Decorative Circles */
+.sofia-bg-circle {
+    background: radial-gradient(circle, rgba(201, 111, 123, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}

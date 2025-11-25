@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kit Esbelta: Short Levanta Glúteo Invisible | Esbelta Colombia</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Kit Esbelta con short levanta-glúteo invisible + exfoliante + aceite de fenogreco. Ritual 3 pasos para resultados visibles. Envío gratis a toda Colombia.">
+    <meta name="keywords" content="short levanta glúteo, fajas colombianas, short invisible, kit esbelta, exfoliante glúteos, aceite fenogreco">
+
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Lucide Icons CDN -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        /* Custom Fonts */
+        .font-heading {
+            font-family: 'Playfair Display', serif;
+        }
+        .font-body {
+            font-family: 'Manrope', sans-serif;
+        }
+
+        /* Color Palette */
+        :root {
+            --chocolate: #2C1E1E;
+            --white-perlado: #FBF7F4;
+            --beige-arena: #D7BFA3;
+            --coral: #F88379;
+            --fuschia: #E64A7B;
+        }
+
+        /* Carousel Animation */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(calc(-350px * 10 - 1.5rem * 10));
+            }
+        }
+
+        .animate-scroll {
+            animation: scroll 8s linear infinite;
+        }
+
+        .animate-scroll:hover {
+            animation-play-state: paused;
+        }
+
+        /* Word Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .word-animate {
+            display: inline-block;
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        /* Scroll Fade In */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-on-scroll {
+            opacity: 0;
+        }
+
+        .fade-in-on-scroll.visible {
+            animation: fadeIn 0.6s ease forwards;
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* WhatsApp Button Pulse */
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        .whatsapp-btn {
+            animation: pulse 2s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="font-body bg-white overflow-x-hidden">
+
+    <!-- LOGO ESBELTA - PRIMERO -->
+    <div class="py-4 px-4 bg-white fade-in-on-scroll">
+        <div class="container mx-auto flex justify-center">
+            <img src="/logo-esbelta.png" alt="Esbelta - Fajas Colombianas Premium" class="h-12 md:h-16 w-auto object-contain">
+        </div>
+    </div>
+
+    <!-- 1) BARRA SUPERIOR FIJA -->
+    <div class="sticky top-0 left-0 right-0 z-50 py-3 px-4 text-center" style="background-color: #2C1E1E; color: #FBF7F4;">
+        <div class="container mx-auto">
+            <p class="font-body text-sm md:text-base font-medium flex items-center justify-center gap-3 flex-wrap">
+                <span class="flex items-center gap-1">
+                    <i data-lucide="truck" class="w-4 h-4"></i>
+                    Envío a todo Colombia
+                </span>
+                <span class="hidden md:inline">|</span>
+                <span class="flex items-center gap-1">
+                    <i data-lucide="refresh-cw" class="w-4 h-4"></i>
+                    Cambios fáciles
+                </span>
+                <span class="hidden md:inline">|</span>
+                <span class="flex items-center gap-1 font-bold">
+                    <i data-lucide="sparkles" class="w-4 h-4"></i>
+                    Promo lanzamiento -20% hoy
+                </span>
+            </p>
+        </div>
+    </div>
+
+    <!-- 2) HERO -->
+    <section class="pb-16 px-4" style="background-color: #D7BFA3;">
+        <div class="container mx-auto">
+            <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+                <!-- Imagen -->
+                <div class="relative fade-in-on-scroll">
+                    <div class="relative aspect-[3/4] rounded-3xl overflow-hidden shadow-2xl">
+                        <img src="/short-negro-1.png" alt="Kit Esbelta Short Invisible" class="w-full h-full object-cover">
+                    </div>
+                </div>
+
+                <!-- Content -->
+                <div class="space-y-6 fade-in-on-scroll">
+                    <!-- Titular -->
+                    <h1 class="font-heading text-5xl md:text-6xl leading-tight" style="color: #2C1E1E;">
+                        Glúteo con forma en 2 minutos.
+                    </h1>
+
+                    <!-- Subtitular -->
+                    <p class="font-body text-lg leading-relaxed" style="color: #2C1E1E;">
+                        <strong>Kit Esbelta:</strong> short levanta-glúteo invisible + exfoliante para piel más lisa +
+                        aceite de fenogreco para masaje y tonificación. Ritual 3 pasos, resultados visibles en tu outfit.
+                        <span class="text-sm italic">Resultados pueden variar.</span>
+                    </p>
+
+                    <!-- CTAs -->
+                    <div class="space-y-4">
+                        <button onclick="agregarAlCarrito()" class="w-full py-4 px-8 rounded-full font-body font-bold text-lg text-white shadow-xl hover:shadow-2xl transition-all flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-transform" style="background-color: #F88379;">
+                            <i data-lucide="shopping-cart" class="w-6 h-6"></i>
+                            Comprar Kit ahora
+                        </button>
+
+                        <button onclick="document.getElementById('ritual').scrollIntoView({behavior: 'smooth'})" class="w-full py-3 text-center font-body font-medium underline hover:no-underline transition-all" style="color: #2C1E1E;">
+                            Ver cómo funciona →
+                        </button>
+                    </div>
+
+                    <!-- Badges -->
+                    <div class="flex items-center justify-center gap-6 pt-4 border-t" style="border-color: #2C1E1E33;">
+                        <div class="flex items-center gap-2 text-base md:text-lg" style="color: #2C1E1E;">
+                            <i data-lucide="shield" class="w-7 h-7 md:w-8 md:h-8"></i>
+                            <span class="font-body font-semibold">Pago seguro</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-base md:text-lg" style="color: #2C1E1E;">
+                            <i data-lucide="truck" class="w-7 h-7 md:w-8 md:h-8"></i>
+                            <span class="font-body font-semibold">Envío rápido</span>
+                        </div>
+                        <div class="flex items-center gap-2 text-base md:text-lg" style="color: #2C1E1E;">
+                            <i data-lucide="refresh-cw" class="w-7 h-7 md:w-8 md:h-8"></i>
+                            <span class="font-body font-semibold">Cambios fáciles</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3) DECENAS DE CLIENTAS FELICES - CARRUSEL -->
+    <section class="py-16 px-4 overflow-hidden" style="background-color: #FBF7F4;">
+        <div class="container mx-auto max-w-7xl">
+            <div class="text-center mb-12 fade-in-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-heading mb-3" style="color: #2C1E1E;">
+                    Decenas de clientas felices
+                </h2>
+                <p class="text-lg font-body" style="color: #2C1E1E88;">
+                    Mira lo que dicen sobre el Short Invisible
+                </p>
+            </div>
+
+            <!-- Carrusel Container -->
+            <div class="relative">
+                <div class="carousel-container overflow-hidden">
+                    <div class="carousel-track flex gap-6 animate-scroll" id="testimonial-carousel">
+                        <!-- Testimonios se cargan via JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4) BENEFICIOS EN 3 BULLETS -->
+    <section class="py-16 px-4" style="background-color: #FBF7F4;">
+        <div class="container mx-auto max-w-5xl">
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="text-center space-y-4 fade-in-on-scroll">
+                    <div class="text-6xl mb-4">🍑</div>
+                    <h3 class="text-xl font-heading" style="color: #2C1E1E;">Glúteo con forma natural</h3>
+                    <p class="font-body" style="color: #2C1E1E;">Realza sin aplanar, invisible bajo la ropa</p>
+                </div>
+                <div class="text-center space-y-4 fade-in-on-scroll">
+                    <div class="text-6xl mb-4">✨</div>
+                    <h3 class="text-xl font-heading" style="color: #2C1E1E;">Piel más lisa al tacto</h3>
+                    <p class="font-body" style="color: #2C1E1E;">Exfoliante pensado para la zona del glúteo</p>
+                </div>
+                <div class="text-center space-y-4 fade-in-on-scroll">
+                    <div class="text-6xl mb-4">💆</div>
+                    <h3 class="text-xl font-heading" style="color: #2C1E1E;">Masaje que suma</h3>
+                    <p class="font-body" style="color: #2C1E1E;">Aceite de fenogreco para rutina de masaje y tono</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5) EL RITUAL 3 PASOS -->
+    <section id="ritual" class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-12 fade-in-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-heading mb-4" style="color: #2C1E1E;">El Ritual 3 Pasos</h2>
+            </div>
+
+            <div class="space-y-8">
+                <div class="flex gap-6 items-start bg-white rounded-2xl p-6 border-2 fade-in-on-scroll" style="border-color: #D7BFA3;">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-heading text-white" style="background-color: #2C1E1E;">1</div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-2xl font-heading" style="color: #2C1E1E;">Exfolia</h3>
+                            <span class="text-sm font-body px-3 py-1 rounded-full" style="background-color: #F88379; color: white;">30–60s</span>
+                        </div>
+                        <p class="font-body text-lg" style="color: #2C1E1E;">Ducha + exfoliante, movimientos circulares</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 items-start bg-white rounded-2xl p-6 border-2 fade-in-on-scroll" style="border-color: #D7BFA3;">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-heading text-white" style="background-color: #2C1E1E;">2</div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-2xl font-heading" style="color: #2C1E1E;">Masajea</h3>
+                            <span class="text-sm font-body px-3 py-1 rounded-full" style="background-color: #F88379; color: white;">60–90s</span>
+                        </div>
+                        <p class="font-body text-lg" style="color: #2C1E1E;">Aceite de fenogreco, de abajo hacia arriba</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-6 items-start bg-white rounded-2xl p-6 border-2 fade-in-on-scroll" style="border-color: #D7BFA3;">
+                    <div class="flex-shrink-0 w-16 h-16 rounded-full flex items-center justify-center text-2xl font-heading text-white" style="background-color: #2C1E1E;">3</div>
+                    <div class="flex-1">
+                        <div class="flex items-center gap-3 mb-2">
+                            <h3 class="text-2xl font-heading" style="color: #2C1E1E;">Coloca</h3>
+                            <span class="text-sm font-body px-3 py-1 rounded-full" style="background-color: #F88379; color: white;">30s</span>
+                        </div>
+                        <p class="font-body text-lg" style="color: #2C1E1E;">Short invisible, look listo</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Nota Legal -->
+            <p class="text-sm font-body text-center mt-8 italic" style="color: #2C1E1E88;">
+                El fenogreco se usa tradicionalmente en masajes; no es medicamento. Resultados y tiempos pueden variar.
+            </p>
+
+            <!-- Micro CTA -->
+            <div class="text-center mt-8">
+                <button class="inline-flex items-center gap-2 px-6 py-3 rounded-full font-body font-semibold text-white shadow-lg hover:shadow-xl transition-all" style="background-color: #E64A7B;">
+                    <i data-lucide="play" class="w-4 h-4"></i>
+                    Ver video 45s
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 6) ANTES/DESPUÉS & PRUEBA SOCIAL -->
+    <section class="py-16 px-4" style="background-color: #FBF7F4;">
+        <div class="container mx-auto max-w-6xl">
+            <div class="text-center mb-12 fade-in-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-heading mb-4" style="color: #2C1E1E;">Resultados Reales</h2>
+            </div>
+
+            <!-- Testimonios -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white rounded-2xl p-6 shadow-lg fade-in-on-scroll">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="/cliente1.jpeg" alt="Ana R." class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-body font-bold" style="color: #2C1E1E;">Ana R.</h4>
+                            <p class="text-sm font-body" style="color: #2C1E1E88;">Bogotá · Talla M</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-3">
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                    </div>
+                    <p class="font-body" style="color: #2C1E1E;">"Se ve increíble bajo mis jeans, nadie nota que lo llevo puesto"</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg fade-in-on-scroll">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="/cliente2.jpeg" alt="María T." class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-body font-bold" style="color: #2C1E1E;">María T.</h4>
+                            <p class="text-sm font-body" style="color: #2C1E1E88;">Medellín · Talla L</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-3">
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                    </div>
+                    <p class="font-body" style="color: #2C1E1E;">"El exfoliante dejó mi piel súper suave, me encanta el ritual completo"</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-6 shadow-lg fade-in-on-scroll">
+                    <div class="flex items-center gap-4 mb-4">
+                        <img src="/cliente3.jpeg" alt="Juliana Z." class="w-16 h-16 rounded-full object-cover">
+                        <div>
+                            <h4 class="font-body font-bold" style="color: #2C1E1E;">Juliana Z.</h4>
+                            <p class="text-sm font-body" style="color: #2C1E1E88;">Cali · Talla S</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-3">
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                        <i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>
+                    </div>
+                    <p class="font-body" style="color: #2C1E1E;">"Cómodo todo el día, el aceite huele delicioso y mi piel se siente mejor"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7) LO QUE INCLUYE EL KIT -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-12 fade-in-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-heading mb-4" style="color: #2C1E1E;">Lo que Incluye el Kit</h2>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8 mb-12">
+                <div class="bg-white rounded-2xl p-8 text-center border-2 hover:shadow-xl transition-shadow fade-in-on-scroll" style="border-color: #D7BFA3;">
+                    <div class="text-6xl mb-4">👗</div>
+                    <h3 class="text-xl font-heading mb-3" style="color: #2C1E1E;">Short invisible</h3>
+                    <p class="font-body mb-3" style="color: #2C1E1E;">Realce natural, compresión media cómoda, costuras planas</p>
+                    <p class="text-2xl font-heading font-bold" style="color: #F88379;">$79.000</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 text-center border-2 hover:shadow-xl transition-shadow fade-in-on-scroll" style="border-color: #D7BFA3;">
+                    <div class="text-6xl mb-4">🧴</div>
+                    <h3 class="text-xl font-heading mb-3" style="color: #2C1E1E;">Exfoliante</h3>
+                    <p class="font-body mb-3" style="color: #2C1E1E;">Textura suave, sensación de piel más lisa</p>
+                    <p class="text-2xl font-heading font-bold" style="color: #F88379;">$25.000</p>
+                </div>
+
+                <div class="bg-white rounded-2xl p-8 text-center border-2 hover:shadow-xl transition-shadow fade-in-on-scroll" style="border-color: #D7BFA3;">
+                    <div class="text-6xl mb-4">💧</div>
+                    <h3 class="text-xl font-heading mb-3" style="color: #2C1E1E;">Aceite de fenogreco</h3>
+                    <p class="font-body mb-3" style="color: #2C1E1E;">Para masaje, aroma suave</p>
+                    <p class="text-2xl font-heading font-bold" style="color: #F88379;">$25.000</p>
+                </div>
+            </div>
+
+            <!-- Valor -->
+            <div class="text-center p-8 rounded-2xl fade-in-on-scroll" style="background-color: #F8837922;">
+                <h3 class="text-2xl font-heading mb-6" style="color: #2C1E1E;">Si compras por separado:</h3>
+
+                <div class="space-y-2 mb-6">
+                    <p class="text-lg font-body line-through" style="color: #2C1E1E88;">Short invisible: $79.000</p>
+                    <p class="text-lg font-body line-through" style="color: #2C1E1E88;">Exfoliante: $25.000</p>
+                    <p class="text-lg font-body line-through" style="color: #2C1E1E88;">Aceite de fenogreco: $25.000</p>
+                    <div class="border-t-2 pt-3 mt-3" style="border-color: #2C1E1E22;">
+                        <p class="text-xl font-body font-bold line-through" style="color: #2C1E1E;">Total: $129.000</p>
+                    </div>
+                </div>
+
+                <p class="text-4xl font-heading mb-4" style="color: #F88379;">Precio del Kit: $89.990</p>
+                <p class="text-xl font-body font-bold" style="color: #2C1E1E;">Ahorras $39.010 (51%)</p>
+
+                <button onclick="agregarAlCarrito()" class="mt-6 py-4 px-12 rounded-full font-body font-bold text-lg text-white shadow-xl hover:scale-105 active:scale-95 transition-transform" style="background-color: #F88379;">
+                    Quiero mi Kit
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8) GUÍA DE TALLAS -->
+    <section class="py-16 px-4" style="background-color: #FBF7F4;">
+        <div class="container mx-auto max-w-4xl">
+            <div class="text-center mb-8 fade-in-on-scroll">
+                <h2 class="text-4xl font-heading mb-4" style="color: #2C1E1E;">Guía de Tallas</h2>
+            </div>
+
+            <!-- Tabla de Tallas -->
+            <div class="bg-white rounded-2xl overflow-hidden shadow-lg mb-8">
+                <table class="w-full">
+                    <thead style="background-color: #2C1E1E; color: white;">
+                        <tr>
+                            <th class="py-4 px-6 text-left font-body">Talla</th>
+                            <th class="py-4 px-6 text-left font-body">Cintura (cm)</th>
+                            <th class="py-4 px-6 text-left font-body">Cadera (cm)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="py-4 px-6 font-body font-semibold" style="color: #2C1E1E;">XS</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">60-70</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">85-95</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-4 px-6 font-body font-semibold" style="color: #2C1E1E;">S</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">70-75</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">95-100</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-body font-semibold" style="color: #2C1E1E;">M</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">75-80</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">100-105</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-4 px-6 font-body font-semibold" style="color: #2C1E1E;">L</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">80-85</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">105-110</td>
+                        </tr>
+                        <tr>
+                            <td class="py-4 px-6 font-body font-semibold" style="color: #2C1E1E;">XL</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">85-90</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">110-115</td>
+                        </tr>
+                        <tr class="bg-gray-50">
+                            <td class="py-4 px-6 font-body font-semibold" style="color: #2C1E1E;">2XL</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">90-95</td>
+                            <td class="py-4 px-6 font-body" style="color: #2C1E1E;">115-120</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="mt-6 mb-8 text-center max-w-2xl mx-auto" id="size-advice">
+                <div class="space-y-2">
+                    <p class="font-body text-lg" style="color: #2C1E1E;">
+                        <span>Si buscas </span><span class="font-bold">mayor realce</span><span>, elige la </span><span class="font-bold">menor</span>
+                    </p>
+                    <p class="font-body text-lg" style="color: #2C1E1E;">
+                        <span>Si buscas para </span><span class="font-bold">comodidad diaria</span><span>, la </span><span class="font-bold">mayor</span>
+                    </p>
+                </div>
+            </div>
+
+            <!-- Calculadora -->
+            <div id="size-calculator-toggle">
+                <button onclick="toggleSizeGuide()" class="w-full py-4 rounded-full font-body font-bold text-white shadow-lg" style="background-color: #2C1E1E;">
+                    Calcula tu talla
+                </button>
+            </div>
+
+            <div id="size-calculator" class="bg-white rounded-2xl p-8 shadow-lg mt-4 hidden">
+                <h3 class="text-2xl font-heading mb-6" style="color: #2C1E1E;">Calcula tu talla</h3>
+                <div class="grid md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block font-body mb-2" style="color: #2C1E1E;">Cintura (cm)</label>
+                        <input type="number" id="waist-input" class="w-full px-4 py-3 rounded-lg border-2 font-body" style="border-color: #D7BFA3;" placeholder="Ej: 75">
+                    </div>
+                    <div>
+                        <label class="block font-body mb-2" style="color: #2C1E1E;">Cadera (cm)</label>
+                        <input type="number" id="hips-input" class="w-full px-4 py-3 rounded-lg border-2 font-body" style="border-color: #D7BFA3;" placeholder="Ej: 100">
+                    </div>
+                </div>
+                <button onclick="calculateSize()" class="w-full py-3 rounded-full font-body font-bold text-white" style="background-color: #F88379;">
+                    Calcular talla
+                </button>
+                <div id="size-result" class="text-center p-6 rounded-xl mt-4 hidden" style="background-color: #F8837922;">
+                    <p class="font-body mb-2" style="color: #2C1E1E;">Tu talla sugerida:</p>
+                    <p id="size-result-text" class="text-4xl font-heading" style="color: #F88379;"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 9) DIFERENCIALES ESBELTA -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-5xl">
+            <div class="text-center mb-12 fade-in-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-heading mb-4" style="color: #2C1E1E;">¿Por qué Esbelta?</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="flex gap-4 items-start p-6 rounded-2xl fade-in-on-scroll" style="background-color: #FBF7F4;">
+                    <div class="flex-shrink-0 p-3 rounded-full" style="background-color: #D7BFA3;">
+                        <i data-lucide="sparkles" class="w-6 h-6" style="color: #2C1E1E;"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading mb-2" style="color: #2C1E1E;">Diseño invisible</h3>
+                        <p class="font-body" style="color: #2C1E1E;">Hecho para uso diario e invisible bajo ropa</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start p-6 rounded-2xl fade-in-on-scroll" style="background-color: #FBF7F4;">
+                    <div class="flex-shrink-0 p-3 rounded-full" style="background-color: #D7BFA3;">
+                        <i data-lucide="award" class="w-6 h-6" style="color: #2C1E1E;"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading mb-2" style="color: #2C1E1E;">Calidad premium</h3>
+                        <p class="font-body" style="color: #2C1E1E;">Paleta y diseño pensados para verse premium, no deportivo</p>
+                    </div>
+                </div>
+
+                <div class="flex gap-4 items-start p-6 rounded-2xl fade-in-on-scroll" style="background-color: #FBF7F4;">
+                    <div class="flex-shrink-0 p-3 rounded-full" style="background-color: #D7BFA3;">
+                        <i data-lucide="message-circle" class="w-6 h-6" style="color: #2C1E1E;"></i>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-heading mb-2" style="color: #2C1E1E;">Soporte humano</h3>
+                        <p class="font-body" style="color: #2C1E1E;">Política de cambios y soporte vía WhatsApp</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10) OFERTA DE LANZAMIENTO -->
+    <section class="py-16 px-4" style="background-color: #F88379;">
+        <div class="container mx-auto max-w-4xl text-center">
+            <div class="fade-in-on-scroll">
+                <h2 class="text-5xl md:text-6xl font-heading text-white mb-6">Lanzamiento - 51%</h2>
+
+                <!-- Countdown -->
+                <div class="flex justify-center gap-4 mb-8">
+                    <div class="bg-white rounded-2xl p-6 min-w-[100px]">
+                        <div id="countdown-hours" class="text-4xl font-heading mb-2" style="color: #2C1E1E;">48</div>
+                        <div class="text-sm font-body" style="color: #2C1E1E;">Horas</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 min-w-[100px]">
+                        <div id="countdown-minutes" class="text-4xl font-heading mb-2" style="color: #2C1E1E;">00</div>
+                        <div class="text-sm font-body" style="color: #2C1E1E;">Minutos</div>
+                    </div>
+                    <div class="bg-white rounded-2xl p-6 min-w-[100px]">
+                        <div id="countdown-seconds" class="text-4xl font-heading mb-2" style="color: #2C1E1E;">00</div>
+                        <div class="text-sm font-body" style="color: #2C1E1E;">Segundos</div>
+                    </div>
+                </div>
+
+                <button onclick="agregarAlCarrito()" class="py-5 px-16 rounded-full font-body font-bold text-2xl shadow-2xl hover:scale-105 active:scale-95 transition-transform" style="background-color: #2C1E1E; color: white;">
+                    Aprovechar ahora
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11) FAQ -->
+    <section class="py-16 px-4 bg-white">
+        <div class="container mx-auto max-w-3xl">
+            <div class="text-center mb-12 fade-in-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-heading" style="color: #2C1E1E;">Preguntas Frecuentes</h2>
+            </div>
+
+            <div class="space-y-4" id="faq-container">
+                <!-- FAQs se cargan via JavaScript -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 12) CIERRE CON CTA + GARANTÍAS -->
+    <section class="py-16 px-4" style="background-color: #FBF7F4;">
+        <div class="container mx-auto max-w-4xl text-center">
+            <div class="space-y-8 fade-in-on-scroll">
+                <h2 class="text-4xl md:text-5xl font-heading" style="color: #2C1E1E;">Prueba el Kit Esbelta 7 días</h2>
+                <p class="text-xl font-body" style="color: #2C1E1E;">Si no te enamora, te ayudamos con el cambio.</p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
+                    <button onclick="agregarAlCarrito()" class="flex-1 py-4 px-8 rounded-full font-body font-bold text-lg text-white shadow-xl hover:scale-105 active:scale-95 transition-transform" style="background-color: #F88379;">
+                        Comprar Kit
+                    </button>
+
+                    <a href="https://wa.me/573147404023?text=Hola! Quiero información sobre el Kit Esbelta" target="_blank" rel="noopener noreferrer" class="flex-1 py-4 px-8 rounded-full font-body font-bold text-lg border-2 flex items-center justify-center gap-2 hover:bg-white transition-colors" style="border-color: #2C1E1E; color: #2C1E1E;">
+                        <i data-lucide="message-circle" class="w-5 h-5"></i>
+                        Hablar por WhatsApp
+                    </a>
+                </div>
+
+                <!-- Garantías finales -->
+                <div class="grid md:grid-cols-3 gap-6 pt-8">
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="p-4 rounded-full" style="background-color: #D7BFA3;">
+                            <i data-lucide="shield" class="w-6 h-6" style="color: #2C1E1E;"></i>
+                        </div>
+                        <p class="font-body font-semibold" style="color: #2C1E1E;">7 días de garantía</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="p-4 rounded-full" style="background-color: #D7BFA3;">
+                            <i data-lucide="truck" class="w-6 h-6" style="color: #2C1E1E;"></i>
+                        </div>
+                        <p class="font-body font-semibold" style="color: #2C1E1E;">Envios protegido</p>
+                    </div>
+                    <div class="flex flex-col items-center gap-2">
+                        <div class="p-4 rounded-full" style="background-color: #D7BFA3;">
+                            <i data-lucide="credit-card" class="w-6 h-6" style="color: #2C1E1E;"></i>
+                        </div>
+                        <p class="font-body font-semibold" style="color: #2C1E1E;">Pago seguro</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/573147404023?text=Hola! Tengo dudas sobre el Kit Esbelta" target="_blank" rel="noopener noreferrer" class="whatsapp-btn fixed bottom-8 right-8 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-colors">
+        <i data-lucide="message-circle" class="w-8 h-8"></i>
+    </a>
+
+    <!-- JavaScript -->
+    <script>
+        // Initialize Lucide Icons
+        lucide.createIcons();
+
+        // Data
+        const clientTestimonials = [
+            { name: 'Carolina M.', city: 'Barranquilla', size: 'M', comment: 'Increíble cómo realza sin ser incómodo, perfecto para usar todo el día', rating: 5 },
+            { name: 'Valentina S.', city: 'Cartagena', size: 'S', comment: 'Me encanta que no se marca bajo la ropa, se siente super natural', rating: 5 },
+            { name: 'Daniela P.', city: 'Pereira', size: 'L', comment: 'El kit completo es maravilloso, mi piel quedó suavecita y el short me queda perfecto', rating: 5 },
+            { name: 'Sofía L.', city: 'Bucaramanga', size: 'M', comment: 'Compré el negro y ya quiero en todos los colores, súper cómodo', rating: 5 },
+            { name: 'Isabella G.', city: 'Cúcuta', size: 'XL', comment: 'Finalmente encontré un short que realza sin aplanar, me siento segura', rating: 5 },
+            { name: 'Camila R.', city: 'Santa Marta', size: 'S', comment: 'El exfoliante es mi parte favorita del ritual, mi piel nunca se había sentido tan suave', rating: 5 },
+            { name: 'Lucía H.', city: 'Manizales', size: 'M', comment: 'Lo uso bajo vestidos y se ve increíble, nadie sabe que llevo short', rating: 4 },
+            { name: 'Mariana V.', city: 'Pasto', size: 'L', comment: 'El aceite de fenogreco huele delicioso y el masaje se siente muy bien', rating: 5 },
+            { name: 'Andrea C.', city: 'Villavicencio', size: 'M', comment: 'Calidad premium, se nota en cada detalle. Totalmente vale la pena', rating: 5 },
+            { name: 'Paula A.', city: 'Ibagué', size: 'S', comment: 'El envío fue rapidísimo y el producto superó mis expectativas', rating: 5 }
+        ];
+
+        const faqs = [
+            { q: '¿Se marca bajo ropa?', a: 'Diseñado para ser invisible; elige tu talla correcta para mejores resultados.' },
+            { q: '¿Pica el exfoliante?', a: 'Fórmula suave; evita usar en piel irritada/lastimada.' },
+            { q: '¿Fenogreco aumenta músculo?', a: 'Ayuda como parte de masaje + entrenamiento y nutrición adecuados; no es un medicamento. Resultados pueden variar.' },
+            { q: '¿Cómo lavo el short?', a: 'A mano, agua fría, secado a la sombra para mantener la calidad.' },
+            { q: '¿Cuánto tarda el envío?', a: 'Envío gratis a toda Colombia. Tiempo estimado: 3-5 días hábiles en ciudades principales.' }
+        ];
+
+        // Load Testimonial Carousel
+        function loadTestimonialCarousel() {
+            const carousel = document.getElementById('testimonial-carousel');
+            const duplicatedTestimonials = [...clientTestimonials, ...clientTestimonials];
+
+            carousel.innerHTML = duplicatedTestimonials.map(testimonial => `
+                <div class="carousel-card flex-shrink-0 w-[350px] bg-white rounded-2xl p-6 shadow-lg">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="w-14 h-14 rounded-full flex items-center justify-center text-white font-heading text-xl" style="background: linear-gradient(to bottom right, #D7BFA3, #2C1E1E);">
+                            ${testimonial.name.charAt(0)}
+                        </div>
+                        <div>
+                            <h4 class="font-body font-bold text-base" style="color: #2C1E1E;">${testimonial.name}</h4>
+                            <p class="text-sm font-body" style="color: #2C1E1E88;">${testimonial.city} · Talla ${testimonial.size}</p>
+                        </div>
+                    </div>
+                    <div class="flex gap-1 mb-3">
+                        ${'<i data-lucide="star" class="w-4 h-4 fill-current" style="color: #F88379;"></i>'.repeat(testimonial.rating)}
+                    </div>
+                    <p class="font-body text-sm leading-relaxed" style="color: #2C1E1E;">"${testimonial.comment}"</p>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        // Load FAQs
+        function loadFAQs() {
+            const faqContainer = document.getElementById('faq-container');
+
+            faqContainer.innerHTML = faqs.map((faq, index) => `
+                <div class="bg-white rounded-2xl border-2 overflow-hidden fade-in-on-scroll" style="border-color: #D7BFA3;">
+                    <button onclick="toggleFAQ(${index})" class="w-full flex items-center justify-between p-6 text-left hover:bg-gray-50 transition-colors">
+                        <span class="font-body font-bold text-lg" style="color: #2C1E1E;">${faq.q}</span>
+                        <i data-lucide="chevron-down" id="faq-icon-${index}" class="w-6 h-6 transition-transform" style="color: #2C1E1E;"></i>
+                    </button>
+                    <div id="faq-answer-${index}" class="overflow-hidden max-h-0 transition-all duration-300">
+                        <div class="px-6 pb-6 font-body" style="color: #2C1E1E;">${faq.a}</div>
+                    </div>
+                </div>
+            `).join('');
+
+            lucide.createIcons();
+        }
+
+        // Toggle FAQ
+        let currentOpenFAQ = null;
+        function toggleFAQ(index) {
+            const answer = document.getElementById(`faq-answer-${index}`);
+            const icon = document.getElementById(`faq-icon-${index}`);
+
+            if (currentOpenFAQ === index) {
+                answer.style.maxHeight = '0';
+                icon.style.transform = 'rotate(0deg)';
+                currentOpenFAQ = null;
+            } else {
+                if (currentOpenFAQ !== null) {
+                    document.getElementById(`faq-answer-${currentOpenFAQ}`).style.maxHeight = '0';
+                    document.getElementById(`faq-icon-${currentOpenFAQ}`).style.transform = 'rotate(0deg)';
+                }
+                answer.style.maxHeight = answer.scrollHeight + 'px';
+                icon.style.transform = 'rotate(180deg)';
+                currentOpenFAQ = index;
+            }
+        }
+
+        // Countdown Timer
+        let countdown = { hours: 48, minutes: 0, seconds: 0 };
+
+        function updateCountdown() {
+            if (countdown.seconds > 0) {
+                countdown.seconds--;
+            } else if (countdown.minutes > 0) {
+                countdown.minutes--;
+                countdown.seconds = 59;
+            } else if (countdown.hours > 0) {
+                countdown.hours--;
+                countdown.minutes = 59;
+                countdown.seconds = 59;
+            }
+
+            document.getElementById('countdown-hours').textContent = String(countdown.hours).padStart(2, '0');
+            document.getElementById('countdown-minutes').textContent = String(countdown.minutes).padStart(2, '0');
+            document.getElementById('countdown-seconds').textContent = String(countdown.seconds).padStart(2, '0');
+        }
+
+        setInterval(updateCountdown, 1000);
+
+        // Size Calculator
+        function toggleSizeGuide() {
+            const calculator = document.getElementById('size-calculator');
+            const toggle = document.getElementById('size-calculator-toggle');
+
+            if (calculator.classList.contains('hidden')) {
+                calculator.classList.remove('hidden');
+                toggle.classList.add('hidden');
+            } else {
+                calculator.classList.add('hidden');
+                toggle.classList.remove('hidden');
+            }
+        }
+
+        function calculateSize() {
+            const waist = parseInt(document.getElementById('waist-input').value);
+            const hips = parseInt(document.getElementById('hips-input').value);
+
+            if (waist && hips) {
+                let size = '2XL';
+                if (waist <= 70 && hips <= 95) size = 'XS';
+                else if (waist <= 75 && hips <= 100) size = 'S';
+                else if (waist <= 80 && hips <= 105) size = 'M';
+                else if (waist <= 85 && hips <= 110) size = 'L';
+                else if (waist <= 90 && hips <= 115) size = 'XL';
+
+                document.getElementById('size-result-text').textContent = size;
+                document.getElementById('size-result').classList.remove('hidden');
+            }
+        }
+
+        // Add to Cart Function
+        function agregarAlCarrito() {
+            alert('¡Kit agregado al carrito! En la versión final, esto se integrará con tu sistema de e-commerce.');
+            // Aquí integrarías con tu sistema de carrito real
+        }
+
+        // Scroll Animations
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in-on-scroll');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                    }
+                });
+            }, {
+                threshold: 0.1
+            });
+
+            elements.forEach(element => observer.observe(element));
+        }
+
+        // Word Animation for Size Advice
+        function animateSizeAdvice() {
+            const sizeAdvice = document.getElementById('size-advice');
+            if (!sizeAdvice) return;
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting && !entry.target.classList.contains('animated')) {
+                        entry.target.classList.add('animated');
+                        const paragraphs = entry.target.querySelectorAll('p');
+
+                        paragraphs.forEach((p, pIndex) => {
+                            const words = p.textContent.trim().split(' ');
+                            p.innerHTML = words.map((word, i) =>
+                                `<span class="word-animate" style="animation-delay: ${(pIndex * 0.6 + i * 0.08)}s">${word}</span>`
+                            ).join(' ');
+                        });
+                    }
+                });
+            }, {
+                threshold: 0.5
+            });
+
+            observer.observe(sizeAdvice);
+        }
+
+        // Initialize on Page Load
+        document.addEventListener('DOMContentLoaded', function() {
+            loadTestimonialCarousel();
+            loadFAQs();
+            handleScrollAnimations();
+            animateSizeAdvice();
+            lucide.createIcons();
+        });
+    </script>
+</body>
+</html>

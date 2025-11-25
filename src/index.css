@@ -1,0 +1,358 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Paleta Chocolate & Beige */
+  --chocolate: #3B2F2F;
+  --chocolate-light: #6D4A40;
+  --beige: #EAD9C8;
+  --beige-hover: #DCC9B8;
+  --rose: #C96F7B;
+  --rose-hover: #B85F6C;
+  --paper: #FFFFFF;
+  --line: #EDE9E6;
+
+  /* Compatibilidad con código existente */
+  --color-esbelta-cream: #FFFFFF;
+  --color-esbelta-terracotta: #C96F7B;
+  --color-esbelta-terracotta-dark: #B85F6C;
+  --color-esbelta-chocolate: #3B2F2F;
+  --color-esbelta-chocolate-light: #6D4A40;
+  --color-esbelta-sage: #EAD9C8;
+  --color-esbelta-sage-dark: #DCC9B8;
+  --color-esbelta-sand: #EAD9C8;
+  --color-esbelta-sand-dark: #DCC9B8;
+  --color-esbelta-sand-light: #EDE9E6;
+  --color-esbelta-gold: #C96F7B;
+  --color-esbelta-gold-dark: #B85F6C;
+}
+
+@font-face {
+  font-family: 'TanWhistling';
+  src: url('./assets/fonts/tan-whistling-regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.font-whistling {
+  font-family: 'TanWhistling', 'Montserrat', sans-serif;
+  letter-spacing: normal;
+}
+
+@layer base {
+  /* Smooth scroll behavior */
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  /* Aplicar Manrope como fuente base */
+  * {
+    font-family: 'Manrope', sans-serif;
+  }
+
+  body {
+    @apply antialiased bg-paper font-body;
+    font-optical-sizing: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+  }
+
+  /* Jerarquía tipográfica con Playfair Display (headings) + Manrope (body) */
+  /* UPDATE: Tracking más ajustado para look editorial */
+  h1 {
+    @apply font-heading font-bold;
+    font-size: clamp(48px, 6vw, 64px);
+    line-height: 110%;
+    letter-spacing: -0.025em; /* tighter */
+  }
+
+  h2 {
+    @apply font-heading font-bold;
+    font-size: clamp(36px, 5vw, 48px);
+    line-height: 110%;
+    letter-spacing: -0.025em; /* tighter */
+  }
+
+  h3 {
+    @apply font-body font-semibold;
+    font-weight: 600;
+    letter-spacing: -0.005em;
+  }
+
+  h4, h5, h6 {
+    @apply font-body font-medium;
+    font-weight: 500;
+  }
+
+  /* Texto de cuerpo optimizado con Manrope */
+  p {
+    @apply font-body;
+    font-size: clamp(16px, 1.5vw, 18px);
+    line-height: 150%;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  /* Texto pequeño y etiquetas */
+  small, .text-sm {
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  /* Texto extra pequeño */
+  .text-xs {
+    font-weight: 500;
+    letter-spacing: 0.03em;
+  }
+
+  /* Botones con Manrope peso 600 */
+  button {
+    @apply font-body;
+    font-size: clamp(14px, 1.2vw, 16px);
+    font-weight: 600;
+    letter-spacing: 2%;
+  }
+
+  /* Enlaces con peso medio */
+  a {
+    font-weight: 500;
+  }
+
+  /* Texto en negritas */
+  strong, b {
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  /* Botón principal con Beige */
+  /* UPDATE: Shimmer Effect + Colored Shadow */
+  .btn-primary {
+    @apply py-3 px-6 rounded-full transform hover:-translate-y-0.5 transition-all duration-200 active:scale-95 relative overflow-hidden;
+    background-color: #D7BFA3;
+    color: #2C1E1E;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2%;
+    font-size: clamp(14px, 1.2vw, 16px);
+    transition: all 120ms ease-out;
+    
+    /* Glow Effect (Sombra coloreada) */
+    box-shadow: 0 10px 25px -5px rgba(215, 191, 163, 0.4), 0 8px 10px -6px rgba(215, 191, 163, 0.4);
+  }
+
+  .btn-primary:hover {
+    background-color: #C9B193;
+    /* Stronger Glow on Hover */
+    box-shadow: 0 20px 25px -5px rgba(215, 191, 163, 0.5), 0 8px 10px -6px rgba(215, 191, 163, 0.5);
+  }
+
+  /* Shimmer Animation Element */
+  .btn-primary::after {
+    content: '';
+    @apply absolute top-0 left-0 w-1/2 h-full skew-x-12 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+    transform: translateX(-150%);
+    /* La animación está definida en tailwind.config.js */
+    animation: shimmer 3s infinite; 
+  }
+
+  .btn-primary:active {
+    transform: scale(0.96);
+  }
+
+  /* Alias para compatibilidad con código existente */
+  .btn-gold {
+    @apply btn-primary;
+  }
+
+  /* Botón secundario con Chocolate outline */
+  .btn-secondary {
+    @apply bg-transparent text-chocolate border-2 border-chocolate py-3 px-6 rounded-full hover:bg-chocolate hover:text-white shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-200 active:scale-95;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    letter-spacing: 2%;
+    font-size: clamp(14px, 1.2vw, 16px);
+    /* Glow sutil en chocolate */
+    box-shadow: 0 4px 6px -1px rgba(44, 30, 30, 0.1), 0 2px 4px -1px rgba(44, 30, 30, 0.06);
+  }
+  
+  .btn-secondary:hover {
+      box-shadow: 0 10px 15px -3px rgba(44, 30, 30, 0.2), 0 4px 6px -2px rgba(44, 30, 30, 0.1);
+  }
+
+  /* Tarjeta de producto con Chocolate & Beige */
+  /* UPDATE: Colored Shadow on Hover */
+  .card-product {
+    @apply bg-paper rounded-2xl shadow-lg transition-all duration-300 overflow-hidden cursor-pointer border border-line;
+  }
+
+  .card-product:hover {
+    transform: translateY(-6px);
+    /* Sombra Rosada suave al hacer hover */
+    box-shadow: 0 20px 25px -5px rgba(201, 111, 123, 0.15), 0 8px 10px -6px rgba(201, 111, 123, 0.1);
+    border-color: rgba(201, 111, 123, 0.3);
+  }
+
+  /* Badge de producto destacado con Rosa (acento) */
+  .badge-hot {
+    @apply absolute top-2 right-2 text-xs font-bold px-2 py-1 rounded-full z-10;
+    background-color: #5C3A3A;
+    color: #FFFFFF;
+    font-family: 'Manrope', sans-serif;
+  }
+
+  /* Gradientes con Chocolate & Beige */
+  .gradient-gold {
+    @apply bg-gradient-to-br from-beige to-chocolate-light;
+  }
+
+  .gradient-esbelta {
+    @apply bg-gradient-to-r from-chocolate to-beige;
+  }
+
+  /* Efectos de texto suaves */
+  .text-gradient {
+    @apply bg-gradient-to-r from-chocolate to-chocolate-light bg-clip-text text-transparent;
+  }
+
+  /* Wordmark decorativo de fondo con Chocolate */
+  .wordmark-bg {
+    position: absolute;
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(72px, 16vw, 160px);
+    font-weight: 700;
+    color: #3B2F2F;
+    opacity: 0.08;
+    z-index: -1;
+    pointer-events: none;
+    user-select: none;
+    white-space: nowrap;
+  }
+  
+  /* Clases de utilidad para Manrope (body) */
+  .font-manrope-regular {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+  }
+
+  .font-manrope-medium {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+  }
+
+  .font-manrope-semibold {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+  }
+
+  /* Clases de utilidad para Playfair Display (headings) */
+  .font-playfair-bold {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+  }
+
+  .font-playfair-extrabold {
+    font-family: 'Playfair Display', serif;
+    font-weight: 800;
+  }
+
+  /* Estilos profesionales para encabezados con Playfair Display */
+  .heading-display {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.025em; /* tighter */
+    line-height: 110%;
+    font-size: clamp(48px, 6vw, 64px);
+  }
+
+  .heading-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.025em; /* tighter */
+    line-height: 110%;
+    font-size: clamp(36px, 5vw, 48px);
+  }
+
+  .heading-subtitle {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.3;
+  }
+
+  /* Texto de cuerpo profesional con Manrope */
+  .body-text {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 400;
+    letter-spacing: 0.01em;
+    line-height: 150%;
+    font-size: clamp(16px, 1.5vw, 18px);
+  }
+
+  .body-text-medium {
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    letter-spacing: 0.005em;
+    line-height: 150%;
+  }
+
+  /* Compatibilidad - mapeo Montserrat → Manrope */
+  .font-montserrat-light,
+  .font-montserrat-regular,
+  .font-montserrat-medium,
+  .font-montserrat-semibold,
+  .font-montserrat-bold,
+  .font-montserrat-extrabold,
+  .font-montserrat-black {
+    font-family: 'Manrope', sans-serif;
+  }
+  
+  /* Animación WhatsApp */
+  @keyframes whatsapp-pulse {
+    0% {
+      box-shadow: 0 0 0 0 rgba(59, 47, 47, 0.3);
+    }
+    70% {
+      box-shadow: 0 0 0 10px rgba(59, 47, 47, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(59, 47, 47, 0);
+    }
+  }
+  
+  .whatsapp-button {
+    animation: whatsapp-pulse 2s infinite;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+
+  /* Animación de carrusel infinito */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 8s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+}

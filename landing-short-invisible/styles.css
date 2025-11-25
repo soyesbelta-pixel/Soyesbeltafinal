@@ -1,0 +1,413 @@
+/* ================================
+   LANDING PAGE SHORT INVISIBLE
+   Custom Styles for Esbelta
+   ================================ */
+
+/* Custom Fonts */
+.font-heading {
+    font-family: 'Playfair Display', serif;
+}
+
+.font-body {
+    font-family: 'Manrope', sans-serif;
+}
+
+/* Color Palette Variables */
+:root {
+    --chocolate: #2C1E1E;
+    --white-perlado: #FBF7F4;
+    --beige-arena: #D7BFA3;
+    --coral: #F88379;
+    --fuschia: #E64A7B;
+}
+
+/* ================================
+   CAROUSEL ANIMATION
+   ================================ */
+
+/* Carousel animation - VELOCIDAD AJUSTADA A 80 SEGUNDOS (muy lento) */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* 350px ancho de cada tarjeta + 1.5rem gap = 374px
+           10 testimonios duplicados = 3740px total */
+        transform: translateX(calc(-350px * 10 - 1.5rem * 10));
+    }
+}
+
+.animate-scroll {
+    animation: scroll 80s linear infinite;
+}
+
+.animate-scroll:hover {
+    animation-play-state: paused;
+}
+
+/* ================================
+   WORD ANIMATION
+   ================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.word-animate {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ================================
+   SCROLL FADE IN ANIMATION
+   ================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-on-scroll {
+    opacity: 0;
+}
+
+.fade-in-on-scroll.visible {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* ================================
+   SMOOTH SCROLL
+   ================================ */
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* ================================
+   WHATSAPP BUTTON PULSE
+   ================================ */
+
+@keyframes pulse {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.whatsapp-btn {
+    animation: pulse 2s ease-in-out infinite;
+}
+
+/* ================================
+   HOVER EFFECTS
+   ================================ */
+
+button {
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    transform: translateY(-2px);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+/* ================================
+   RESPONSIVE ADJUSTMENTS
+   ================================ */
+
+@media (max-width: 768px) {
+    .carousel-card {
+        width: 300px !important;
+    }
+
+    /* Ajustar animación para mobile */
+    @keyframes scroll {
+        0% {
+            transform: translateX(0);
+        }
+        100% {
+            transform: translateX(calc(-300px * 10 - 1.5rem * 10));
+        }
+    }
+}
+
+/* ================================
+   CUSTOM SCROLLBAR
+   ================================ */
+
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--white-perlado);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--beige-arena);
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--chocolate);
+}
+
+/* ================================
+   SECTION SPACING
+   ================================ */
+
+section {
+    position: relative;
+}
+
+/* ================================
+   GRADIENT BACKGROUNDS
+   ================================ */
+
+.gradient-chocolate-beige {
+    background: linear-gradient(to bottom right, var(--beige-arena), var(--chocolate));
+}
+
+/* ================================
+   STAR RATING FILL
+   ================================ */
+
+.fill-current {
+    fill: currentColor;
+}
+
+/* ================================
+   TABLE STYLES
+   ================================ */
+
+table {
+    border-collapse: collapse;
+}
+
+tbody tr:hover {
+    background-color: rgba(215, 191, 163, 0.1);
+    transition: background-color 0.2s ease;
+}
+
+/* ================================
+   FORM INPUTS
+   ================================ */
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: var(--coral);
+    box-shadow: 0 0 0 3px rgba(248, 131, 121, 0.1);
+}
+
+/* ================================
+   ACCORDION TRANSITIONS
+   ================================ */
+
+.overflow-hidden {
+    transition: max-height 0.3s ease;
+}
+
+/* ================================
+   LOADING STATES
+   ================================ */
+
+@keyframes shimmer {
+    0% {
+        background-position: -1000px 0;
+    }
+    100% {
+        background-position: 1000px 0;
+    }
+}
+
+.loading {
+    animation: shimmer 2s infinite;
+    background: linear-gradient(
+        to right,
+        #f6f7f8 0%,
+        #edeef1 20%,
+        #f6f7f8 40%,
+        #f6f7f8 100%
+    );
+    background-size: 1000px 100%;
+}
+
+/* ================================
+   UTILITY CLASSES
+   ================================ */
+
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.box-shadow-xl {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* ================================
+   PRODUCTS CAROUSEL
+   ================================ */
+
+.products-carousel-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #D7BFA3 #FBF7F4;
+}
+
+.products-carousel-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.products-carousel-container::-webkit-scrollbar-track {
+    background: #FBF7F4;
+    border-radius: 10px;
+}
+
+.products-carousel-container::-webkit-scrollbar-thumb {
+    background: #D7BFA3;
+    border-radius: 10px;
+}
+
+.products-carousel-container::-webkit-scrollbar-thumb:hover {
+    background: #C9B7A5;
+}
+
+.products-carousel {
+    padding: 0 1rem;
+}
+
+.product-card {
+    width: 320px;
+    min-width: 320px;
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: 280px;
+        min-width: 280px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-carousel {
+        justify-content: center;
+    }
+}
+
+/* ================================
+   PRODUCT IMAGES
+   ================================ */
+
+.product-image {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .product-image {
+        width: 140px;
+    }
+}
+
+/* ================================
+   BENEFIT IMAGES
+   ================================ */
+
+.benefit-image {
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-image-short {
+    width: 320px;
+    height: 375px;
+    object-fit: cover;
+}
+
+.benefit-image:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .benefit-image {
+        width: 200px;
+    }
+
+    .benefit-image-short {
+        width: 260px;
+        height: 305px;
+    }
+}
+
+/* ================================
+   TESTIMONIAL VIDEO
+   ================================ */
+
+.testimonial-video-container {
+    position: relative;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.testimonial-video {
+    display: block;
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+.play-button {
+    transition: opacity 0.3s ease, transform 0.2s ease;
+}
+
+.testimonial-video-container:hover .play-button {
+    transform: scale(1.1);
+}
+
+.play-button {
+    opacity: 1;
+}
+
+/* ================================
+   PRINT STYLES
+   ================================ */
+
+@media print {
+    .whatsapp-btn,
+    .sticky {
+        display: none !important;
+    }
+}

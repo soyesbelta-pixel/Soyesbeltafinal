@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
+    <meta name="theme-color" content="#C96F7B" />
+    <meta name="description" content="Esbelta - Shapewear colombiano premium que moldea, realza y transforma tu figura al instante. Envío gratis, asesoría personalizada y garantía de satisfacción." />
+    <meta name="keywords" content="fajas colombianas, fajas reductoras, fajas post operatorias, fajas modeladoras, esbelta" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Esbelta moldea, realza y transforma tu figura" />
+    <meta property="og:description" content="Shapewear colombiano premium que moldea, realza y transforma tu figura al instante" />
+    <meta property="og:image" content="/icon-512.png" />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:title" content="Esbelta moldea, realza y transforma tu figura" />
+    <meta property="twitter:description" content="Shapewear colombiano premium que moldea, realza y transforma tu figura al instante" />
+
+    <!-- PWA -->
+    <link rel="manifest" href="/manifest.json" />
+    <link rel="apple-touch-icon" href="/icon-192.png" />
+
+    <!-- Google Fonts - Playfair Display + Manrope -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800&family=Manrope:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Performance optimizations -->
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="dns-prefetch" href="https://images.unsplash.com" />
+    
+    <title>Esbelta moldea, realza y transforma tu figura</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+
+    <!-- Splash screen movido a React component -->
+    <!-- <style>
+      #splash {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(135deg, #F5EFE7 0%, #F5EFE7 40%, #C9B7A5 70%, #7D9A86 100%);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        z-index: 9999;
+        transition: opacity 0.5s ease-out;
+        overflow: hidden;
+      }
+      
+      #splash.hide {
+        opacity: 0;
+        pointer-events: none;
+      }
+
+      .splash-container {
+        text-align: center;
+        position: relative;
+        z-index: 10;
+      }
+      
+      .splash-logo {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 3.5rem;
+        font-weight: 800;
+        letter-spacing: -0.03em;
+        color: #3B2F2F;
+        margin-bottom: 10px;
+        animation: fadeInScale 1s ease-out;
+        position: relative;
+      }
+
+      .splash-tagline {
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.9rem;
+        font-weight: 400;
+        letter-spacing: 0.15em;
+        color: #7D9A86;
+        text-transform: uppercase;
+        animation: fadeInUp 1s ease-out 0.3s both;
+        margin-bottom: 40px;
+      }
+
+      .loading-container {
+        position: relative;
+        width: 200px;
+        height: 60px;
+        margin: 0 auto;
+      }
+
+      .loading-silhouette {
+        position: relative;
+        width: 60px;
+        height: 60px;
+        margin: 0 auto;
+        animation: morphShape 3s ease-in-out infinite;
+      }
+
+      .loading-silhouette::before,
+      .loading-silhouette::after {
+        content: '';
+        position: absolute;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #D27C5A, #7D9A86);
+      }
+
+      .loading-silhouette::before {
+        width: 60px;
+        height: 60px;
+        animation: morphTop 3s ease-in-out infinite;
+      }
+
+      .loading-silhouette::after {
+        width: 60px;
+        height: 60px;
+        top: 20px;
+        animation: morphBottom 3s ease-in-out infinite;
+      }
+
+      .loading-bar {
+        position: absolute;
+        bottom: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 120px;
+        height: 2px;
+        background: rgba(201, 183, 165, 0.2);
+        border-radius: 2px;
+        overflow: hidden;
+      }
+
+      .loading-progress {
+        position: absolute;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 30%;
+        background: linear-gradient(90deg, transparent, #D27C5A, transparent);
+        animation: loading 1.5s ease-in-out infinite;
+      }
+
+      .splash-features {
+        position: absolute;
+        bottom: 60px;
+        left: 50%;
+        transform: translateX(-50%);
+        display: flex;
+        gap: 30px;
+        animation: fadeInUp 1s ease-out 0.6s both;
+      }
+
+      .feature-item {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        font-family: 'Montserrat', sans-serif;
+        font-size: 0.75rem;
+        color: #7D9A86;
+        font-weight: 500;
+      }
+
+      .feature-icon {
+        width: 16px;
+        height: 16px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .decorative-circle {
+        position: absolute;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(210, 124, 90, 0.1), transparent);
+        animation: floatBubble 6s ease-in-out infinite;
+      }
+
+      .circle-1 {
+        width: 200px;
+        height: 200px;
+        top: -100px;
+        left: -100px;
+        animation-delay: 0s;
+      }
+
+      .circle-2 {
+        width: 150px;
+        height: 150px;
+        bottom: -75px;
+        right: -75px;
+        animation-delay: 2s;
+      }
+
+      .circle-3 {
+        width: 100px;
+        height: 100px;
+        top: 50%;
+        right: 10%;
+        animation-delay: 4s;
+      }
+
+      @keyframes fadeInScale {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeInUp {
+        0% {
+          opacity: 0;
+          transform: translateY(20px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes morphTop {
+        0%, 100% {
+          border-radius: 50% 50% 50% 50%;
+          transform: scale(1) translateY(0);
+        }
+        33% {
+          border-radius: 50% 50% 20% 20%;
+          transform: scale(0.8, 1.2) translateY(-5px);
+        }
+        66% {
+          border-radius: 50% 50% 40% 40%;
+          transform: scale(1.1, 0.9) translateY(0);
+        }
+      }
+
+      @keyframes morphBottom {
+        0%, 100% {
+          border-radius: 50% 50% 50% 50%;
+          transform: scale(1);
+        }
+        33% {
+          border-radius: 20% 20% 50% 50%;
+          transform: scale(0.9, 1.1);
+        }
+        66% {
+          border-radius: 40% 40% 50% 50%;
+          transform: scale(1.1, 0.8);
+        }
+      }
+
+      @keyframes morphShape {
+        0%, 100% {
+          transform: rotate(0deg);
+        }
+        50% {
+          transform: rotate(180deg);
+        }
+      }
+
+      @keyframes loading {
+        0% {
+          left: -40%;
+        }
+        100% {
+          left: 100%;
+        }
+      }
+
+      @keyframes floatBubble {
+        0%, 100% {
+          transform: translate(0, 0) scale(1);
+          opacity: 0.3;
+        }
+        33% {
+          transform: translate(30px, -30px) scale(1.1);
+          opacity: 0.5;
+        }
+        66% {
+          transform: translate(-20px, 20px) scale(0.9);
+          opacity: 0.3;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .splash-logo {
+          font-size: 2.5rem;
+        }
+        .splash-features {
+          flex-direction: column;
+          gap: 15px;
+        }
+      }
+    </style> -->
+
+    <!-- Splash screen ahora está en React component SplashScreen.jsx -->
+  </body>
+</html>

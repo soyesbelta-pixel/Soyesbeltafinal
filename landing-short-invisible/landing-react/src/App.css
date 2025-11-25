@@ -1,0 +1,388 @@
+/* ================================
+   LANDING PAGE SHORT INVISIBLE
+   Custom Styles for Esbelta
+   ================================ */
+
+/* ================================
+   CAROUSEL ANIMATION
+   ================================ */
+
+/* Carousel animation - VELOCIDAD AJUSTADA A 80 SEGUNDOS (muy lento) */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        /* 350px ancho de cada tarjeta + 1.5rem gap = 374px
+           10 testimonios duplicados = 3740px total */
+        transform: translateX(calc(-350px * 10 - 1.5rem * 10));
+    }
+}
+
+.animate-scroll {
+    animation: scroll 80s linear infinite;
+}
+
+.animate-scroll:hover {
+    animation-play-state: paused;
+}
+
+/* ================================
+   WORD ANIMATION
+   ================================ */
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.word-animate {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ================================
+   SCROLL FADE IN ANIMATION
+   ================================ */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-on-scroll {
+    opacity: 0;
+}
+
+.fade-in-on-scroll.visible {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* ================================
+   GRADIENT BACKGROUNDS
+   ================================ */
+
+.gradient-chocolate-beige {
+    background: linear-gradient(135deg, #3B2F2F 0%, #D7BFA3 100%);
+}
+
+/* ================================
+   PRODUCTS CAROUSEL
+   ================================ */
+
+.products-carousel-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #D7BFA3 #FBF7F4;
+}
+
+.products-carousel-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.products-carousel-container::-webkit-scrollbar-track {
+    background: #FBF7F4;
+    border-radius: 10px;
+}
+
+.products-carousel-container::-webkit-scrollbar-thumb {
+    background: #D7BFA3;
+    border-radius: 10px;
+}
+
+.products-carousel-container::-webkit-scrollbar-thumb:hover {
+    background: #C9B7A5;
+}
+
+.products-carousel {
+    padding: 0 1rem;
+}
+
+.product-card {
+    width: 320px;
+    min-width: 320px;
+}
+
+@media (max-width: 768px) {
+    .product-card {
+        width: 280px;
+        min-width: 280px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .products-carousel {
+        justify-content: center;
+    }
+}
+
+/* ================================
+   PRODUCT IMAGES
+   ================================ */
+
+.product-image {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.product-image:hover {
+    transform: scale(1.05);
+}
+
+@media (max-width: 768px) {
+    .product-image {
+        width: 140px;
+    }
+}
+
+/* ================================
+   BENEFITS CAROUSEL
+   ================================ */
+
+.benefits-carousel-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #D7BFA3 #FBF7F4;
+}
+
+.benefits-carousel-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.benefits-carousel-container::-webkit-scrollbar-track {
+    background: #FBF7F4;
+    border-radius: 10px;
+}
+
+.benefits-carousel-container::-webkit-scrollbar-thumb {
+    background: #D7BFA3;
+    border-radius: 10px;
+}
+
+.benefits-carousel-container::-webkit-scrollbar-thumb:hover {
+    background: #C9B7A5;
+}
+
+.benefits-carousel {
+    padding: 0 1rem;
+}
+
+.benefit-card {
+    width: 350px;
+    min-width: 350px;
+}
+
+@media (max-width: 768px) {
+    .benefit-card {
+        width: 300px;
+        min-width: 300px;
+    }
+}
+
+@media (min-width: 1024px) {
+    .benefits-carousel {
+        justify-content: center;
+    }
+}
+
+/* ================================
+   BENEFIT IMAGES
+   ================================ */
+
+.benefit-image {
+    width: 250px;
+    height: auto;
+    object-fit: contain;
+    border-radius: 16px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.benefit-image-short {
+    width: 320px;
+    height: 375px;
+    object-fit: cover;
+}
+
+.benefit-image:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 768px) {
+    .benefit-image {
+        width: 200px;
+    }
+
+    .benefit-image-short {
+        width: 260px;
+        height: 305px;
+    }
+}
+
+/* ================================
+   RESULTS CAROUSEL
+   ================================ */
+
+.results-carousel-container {
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin;
+    scrollbar-color: #D7BFA3 #FBF7F4;
+}
+
+.results-carousel-container::-webkit-scrollbar {
+    height: 8px;
+}
+
+.results-carousel-container::-webkit-scrollbar-track {
+    background: #FBF7F4;
+    border-radius: 10px;
+}
+
+.results-carousel-container::-webkit-scrollbar-thumb {
+    background: #D7BFA3;
+    border-radius: 10px;
+}
+
+.results-carousel-container::-webkit-scrollbar-thumb:hover {
+    background: #C9B7A5;
+}
+
+.results-carousel {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+.result-card {
+    width: 420px;
+    min-width: 420px;
+    flex-shrink: 0;
+}
+
+@media (max-width: 768px) {
+    .result-card {
+        width: 350px;
+        min-width: 350px;
+    }
+}
+
+@media (max-width: 480px) {
+    .result-card {
+        width: 300px;
+        min-width: 300px;
+    }
+}
+
+/* ================================
+   TESTIMONIAL VIDEOS
+   ================================ */
+
+.testimonial-video {
+    width: 252px;
+    height: 448px;
+    object-fit: cover;
+}
+
+/* ================================
+   GLOW SHADOW EFFECT
+   ================================ */
+
+.shadow-glow {
+    box-shadow:
+        0 0 25px rgba(255, 200, 100, 0.8),
+        0 0 50px rgba(255, 180, 80, 0.6),
+        0 4px 30px rgba(44, 30, 30, 0.3),
+        inset 0 0 20px rgba(255, 220, 150, 0.1);
+    animation: glowPulse 1.5s ease-in-out infinite;
+}
+
+.shadow-glow-strong {
+    box-shadow:
+        0 0 35px rgba(255, 200, 100, 1),
+        0 0 70px rgba(255, 180, 80, 0.8),
+        0 6px 40px rgba(44, 30, 30, 0.4),
+        inset 0 0 30px rgba(255, 220, 150, 0.2);
+}
+
+@keyframes glowPulse {
+    0%, 100% {
+        box-shadow:
+            0 0 25px rgba(255, 200, 100, 0.8),
+            0 0 50px rgba(255, 180, 80, 0.6),
+            0 4px 30px rgba(44, 30, 30, 0.3),
+            inset 0 0 20px rgba(255, 220, 150, 0.1);
+    }
+    50% {
+        box-shadow:
+            0 0 40px rgba(255, 200, 100, 1),
+            0 0 80px rgba(255, 180, 80, 0.9),
+            0 6px 40px rgba(44, 30, 30, 0.4),
+            inset 0 0 30px rgba(255, 220, 150, 0.2);
+    }
+}
+
+/* ================================
+   VOICE ASSISTANT ANIMATIONS
+   ================================ */
+
+@keyframes voiceFloat {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes voiceRing1 {
+    0% {
+        transform: scale(1);
+        opacity: 0.4;
+    }
+    100% {
+        transform: scale(1.5);
+        opacity: 0;
+    }
+}
+
+@keyframes voiceRing2 {
+    0% {
+        transform: scale(1);
+        opacity: 0.3;
+    }
+    100% {
+        transform: scale(1.8);
+        opacity: 0;
+    }
+}
+
+.voice-orb-float {
+    animation: voiceFloat 3s ease-in-out infinite;
+}
+
+.voice-ring-1 {
+    animation: voiceRing1 2s ease-out infinite;
+}
+
+.voice-ring-2 {
+    animation: voiceRing2 2s ease-out infinite 0.5s;
+}

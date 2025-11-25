@@ -1,0 +1,113 @@
+============================================
+LANDING PAGE SHORT INVISIBLE - ESBELTA
+Instrucciones Rápidas para Hostinger
+============================================
+
+📁 UBICACIÓN DE LA CARPETA:
+E:\CAPITAN NOLASCO\4\Hecho\RESPALDO\landing-short-invisible
+
+📋 ARCHIVOS INCLUIDOS:
+✅ index.html (página principal)
+✅ styles.css (estilos - carrusel a 25 segundos, más lento)
+✅ script.js (funcionalidad interactiva)
+✅ images/ (5 imágenes: logo + producto + 3 clientes)
+✅ README.md (documentación completa)
+
+🚀 PASOS PARA SUBIR A HOSTINGER:
+
+OPCIÓN FÁCIL - Administrador de Archivos Web:
+1. Entra a tu panel de Hostinger (hpanel)
+2. Haz clic en "Archivos" → "Administrador de archivos"
+3. Ve a la carpeta "public_html"
+4. Haz clic en "Subir" (botón arriba a la derecha)
+5. Selecciona TODOS los archivos de esta carpeta:
+   - index.html
+   - styles.css
+   - script.js
+   - Arrastra la carpeta "images" completa
+6. Espera a que termine la subida
+7. Abre tu dominio en el navegador: https://tudominio.com
+
+OPCIÓN PRO - FTP con FileZilla:
+1. Descarga FileZilla: https://filezilla-project.org
+2. Abre FileZilla
+3. Obtén credenciales FTP de Hostinger:
+   - Panel Hostinger → Archivos → Cuenta FTP
+4. Conecta:
+   - Host: ftp.tudominio.com
+   - Usuario: (de Hostinger)
+   - Contraseña: (de Hostinger)
+   - Puerto: 21
+5. Navega a "public_html" en la parte derecha
+6. Arrastra TODO desde la carpeta landing-short-invisible/
+7. Listo!
+
+⚙️ CAMBIOS QUE PUEDES HACER:
+
+1. NÚMERO DE WHATSAPP:
+   - Busca en index.html: "5215559611567"
+   - Reemplaza por tu número con código de país
+   - Ejemplo: 573001234567 (Colombia)
+
+2. VELOCIDAD DEL CARRUSEL:
+   - Abre styles.css
+   - Busca: "animation: scroll 25s"
+   - Cambia 25s por:
+     * 30s = más lento
+     * 20s = más rápido
+     * 15s = muy rápido
+
+3. PRECIOS:
+   - Busca en index.html los valores:
+     * $79.000 (short)
+     * $25.000 (exfoliante)
+     * $25.000 (aceite)
+     * $89.990 (kit completo)
+
+4. SISTEMA DE PAGO:
+   - Abre script.js
+   - Busca la función: agregarAlCarrito()
+   - Reemplaza por tu link de MercadoPago, Shopify, etc.
+
+🎨 COLORES DEL DISEÑO:
+Chocolate: #2C1E1E
+Beige Arena: #D7BFA3
+Coral: #F88379
+Blanco: #FBF7F4
+
+✅ FUNCIONALIDADES INCLUIDAS:
+✓ Carrusel de testimonios (10 clientes reales)
+✓ Calculadora de tallas interactiva
+✓ FAQ con acordeón
+✓ Countdown timer de 48 horas
+✓ Botón flotante de WhatsApp
+✓ Animaciones suaves al hacer scroll
+✓ 100% responsive (desktop, tablet, móvil)
+✓ Optimizado para SEO
+
+📞 WHATSAPP CONFIGURADO:
++52 55 5961 1567
+(Cambiar en index.html y script.js)
+
+🌐 DOMINIOS PROBADOS:
+✅ Funciona en cualquier hosting
+✅ Compatible con Hostinger, GoDaddy, Bluehost
+✅ No requiere Node.js ni build process
+✅ Solo HTML, CSS, JS puro
+
+⚠️ IMPORTANTE:
+- La carpeta "images" DEBE estar al mismo nivel que index.html
+- Los archivos deben estar directamente en public_html (no en subcarpeta)
+- Si pones en subcarpeta, accede: tudominio.com/subcarpeta/
+
+🔗 PARA TESTING LOCAL:
+1. Abre index.html con Chrome o Firefox
+2. Todo funcionará excepto algunas fuentes (necesitan internet)
+
+📧 NOTAS FINALES:
+- Backup antes de subir
+- Prueba en móvil después de subir
+- Velocidad del carrusel ajustada a 25 segundos (era 8s)
+- Todas las imágenes necesarias están incluidas
+
+¡Listo para subir a Hostinger! 🚀

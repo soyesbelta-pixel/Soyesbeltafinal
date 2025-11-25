@@ -1,0 +1,5 @@
+{
+  "name": "GymFit Virtual Try-On",
+  "description": "Upload a photo of yourself, select a gym clothing item, and use AI to see a preview of how it looks on you.",
+  "requestFramePermissions": []
+}

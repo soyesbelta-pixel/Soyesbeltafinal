@@ -1,0 +1,520 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Manrope:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-body bg-white overflow-x-hidden;
+    margin: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@layer utilities {
+  /* Carousel Animation */
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-350px * 10 - 1.5rem * 10));
+    }
+  }
+
+  .animate-scroll {
+    animation: scroll 80s linear infinite;
+  }
+
+  .animate-scroll:hover {
+    animation-play-state: paused;
+  }
+
+  /* Word Animation */
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .word-animate {
+    display: inline-block;
+    opacity: 0;
+    animation: fadeInUp 0.5s ease forwards;
+  }
+
+  /* Scroll Fade In Animation */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .fade-in-on-scroll {
+    opacity: 0;
+  }
+
+  .fade-in-on-scroll.visible {
+    animation: fadeIn 0.6s ease forwards;
+  }
+
+  /* WhatsApp Button Pulse */
+  @keyframes pulse {
+    0%, 100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.05);
+    }
+  }
+
+  .whatsapp-btn {
+    animation: pulse 2s ease-in-out infinite;
+  }
+
+  /* Gradient Background */
+  .gradient-chocolate-beige {
+    background: linear-gradient(to bottom right, #D7BFA3, #2C1E1E);
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FBF7F4;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D7BFA3;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2C1E1E;
+}
+
+/* Table Styles */
+tbody tr:hover {
+  background-color: rgba(215, 191, 163, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+/* Form Inputs */
+input[type="number"]:focus {
+  outline: none;
+  border-color: #F88379;
+  box-shadow: 0 0 0 3px rgba(248, 131, 121, 0.1);
+}
+
+/* Responsive Carousel */
+@media (max-width: 768px) {
+  .carousel-card {
+    width: 300px !important;
+  }
+
+  @keyframes scroll {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-300px * 10 - 1.5rem * 10));
+    }
+  }
+}
+
+/* ========================================
+   VOICE ASSISTANT ORB STYLES
+   ======================================== */
+
+/* Orbe base */
+.orb-button {
+  position: relative;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: visible;
+}
+
+@media (min-width: 768px) {
+  .orb-button {
+    width: 200px;
+    height: 200px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .orb-button {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+.orb-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.9;
+}
+
+.orb-button:not(:disabled):hover {
+  transform: scale(1.05);
+}
+
+.orb-button:not(:disabled):active {
+  transform: scale(0.95);
+}
+
+/* Orbe inner (contenedor icono) */
+.orb-inner {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background: inherit;
+}
+
+.orb-icon {
+  width: 32px;
+  height: 32px;
+  color: white;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+  z-index: 10;
+}
+
+@media (min-width: 768px) {
+  .orb-icon {
+    width: 40px;
+    height: 40px;
+  }
+}
+
+/* ========================================
+   ESTADOS DEL ORBE
+   ======================================== */
+
+/* IDLE - Reposo */
+.orb-button.idle {
+  background: linear-gradient(135deg, #E8967E 0%, #D27C5A 100%);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 30px rgba(210, 124, 90, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: breathe 3s ease-in-out infinite;
+}
+
+/* CONNECTING - Conectando */
+.orb-button.connecting {
+  background: linear-gradient(
+    -45deg,
+    #E8967E,
+    #F5EFE7,
+    #E8967E,
+    #D27C5A
+  );
+  background-size: 400% 400%;
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 50px rgba(232, 150, 126, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  animation: rotate-gradient 2s ease infinite;
+}
+
+/* ACTIVE - Escuchando */
+.orb-button.active {
+  background: linear-gradient(135deg, #D27C5A 0%, #C9B7A5 100%);
+  border-color: rgba(255, 215, 120, 0.5);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.15),
+    0 0 60px rgba(210, 124, 90, 0.8),
+    0 0 100px rgba(232, 150, 126, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* ERROR - Error */
+.orb-button.error {
+  background: linear-gradient(135deg, #EF4444 0%, #FCA5A5 100%);
+  border-color: rgba(239, 68, 68, 0.4);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.1),
+    0 0 40px rgba(239, 68, 68, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: shake 0.5s ease-in-out;
+}
+
+/* ========================================
+   ANIMACIONES PRINCIPALES
+   ======================================== */
+
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      0 0 50px rgba(210, 124, 90, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes rotate-gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      0 0 60px rgba(210, 124, 90, 0.8),
+      0 0 100px rgba(232, 150, 126, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.15),
+      0 0 80px rgba(210, 124, 90, 1),
+      0 0 120px rgba(232, 150, 126, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  25% { transform: translateX(-8px); }
+  75% { transform: translateX(8px); }
+}
+
+/* ========================================
+   ONDAS CONCÉNTRICAS (CONNECTING)
+   ======================================== */
+
+.orb-ripple {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 2px solid rgba(232, 150, 126, 0.6);
+  animation: ripple 2s ease-out infinite;
+  pointer-events: none;
+}
+
+@keyframes ripple {
+  0% {
+    transform: scale(0.8);
+    opacity: 0.6;
+  }
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   ONDAS DE AUDIO (ACTIVE)
+   ======================================== */
+
+.audio-bars-container {
+  pointer-events: none;
+  z-index: 5;
+}
+
+.audio-bar {
+  width: 4px;
+  height: 40px;
+  margin: 0 3px;
+  background: rgba(255, 255, 255, 0.7);
+  border-radius: 2px;
+  animation: audio-wave 0.8s ease-in-out infinite;
+  transform-origin: center;
+}
+
+@keyframes audio-wave {
+  0%, 100% {
+    transform: scaleY(0.5);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scaleY(1.5);
+    opacity: 1;
+  }
+}
+
+/* ========================================
+   PARTÍCULAS FLOTANTES
+   ======================================== */
+
+.particles-container {
+  pointer-events: none;
+  z-index: 1;
+}
+
+.particle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  border-radius: 50%;
+  filter: blur(1px);
+  animation: float-particle 3s ease-in-out infinite;
+}
+
+@keyframes float-particle {
+  0% {
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translate(
+      calc(-50% + var(--tx)),
+      calc(-50% + var(--ty))
+    ) scale(1);
+    opacity: 0;
+  }
+}
+
+/* ========================================
+   RESPONSIVE ADJUSTMENTS
+   ======================================== */
+
+@media (max-width: 768px) {
+  .audio-bar {
+    width: 3px;
+    height: 30px;
+    margin: 0 2px;
+  }
+
+  .particle {
+    width: 4px;
+    height: 4px;
+  }
+}
+
+/* ========================================
+   FLOATING VOICE BUTTON - SIRI STYLE
+   ======================================== */
+
+/* Botón flotante con animación de respiración */
+.voice-orb-float {
+  animation: float-breathe 3s ease-in-out infinite;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+@keyframes float-breathe {
+  0%, 100% {
+    transform: scale(1) translateY(0);
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+    box-shadow:
+      0 12px 40px rgba(0, 0, 0, 0.15),
+      0 0 50px rgba(210, 124, 90, 0.6);
+  }
+}
+
+.voice-orb-float:hover {
+  animation: float-breathe 3s ease-in-out infinite, pulse-intense 1s ease-in-out infinite;
+}
+
+@keyframes pulse-intense {
+  0%, 100% {
+    box-shadow:
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 0 30px rgba(210, 124, 90, 0.4);
+  }
+  50% {
+    box-shadow:
+      0 12px 48px rgba(0, 0, 0, 0.2),
+      0 0 60px rgba(210, 124, 90, 0.8);
+  }
+}
+
+/* Anillos pulsantes */
+.voice-ring-1 {
+  animation: ring-pulse 2s ease-out infinite;
+  pointer-events: none;
+}
+
+.voice-ring-2 {
+  animation: ring-pulse 2s ease-out infinite;
+  animation-delay: 1s;
+  pointer-events: none;
+}
+
+@keyframes ring-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  100% {
+    transform: scale(1.8);
+    opacity: 0;
+  }
+}
+
+/* Tooltip flotante */
+.voice-tooltip {
+  animation: tooltip-fade-in 0.5s ease-out;
+}
+
+@keyframes tooltip-fade-in {
+  0% {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .voice-orb-float {
+    padding: 12px;
+  }
+
+  .voice-tooltip p {
+    font-size: 0.75rem;
+  }
+}

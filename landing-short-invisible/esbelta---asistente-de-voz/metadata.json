@@ -1,0 +1,7 @@
+{
+  "name": "Esbelta - Asistente de Voz",
+  "description": "Un asistente de voz de marca que utiliza la API Gemini Live para guiar a los clientes en la elección y compra de fajas colombianas de la marca 'esbelta'.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
