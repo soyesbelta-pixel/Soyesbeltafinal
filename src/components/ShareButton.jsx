@@ -10,7 +10,7 @@ const TikTokIcon = ({ className }) => (
   </svg>
 );
 
-const ShareButton = ({ productName = 'Producto Esbelta', productImage = '' }) => {
+const ShareButton = ({ productName = 'Producto Esbelta', productImage = '', productId = null }) => {
   const [isOpen, setIsOpen] = useState(false);
   const menuRef = useRef(null);
   const { addNotification } = useStore();
@@ -32,8 +32,36 @@ const ShareButton = ({ productName = 'Producto Esbelta', productImage = '' }) =>
     };
   }, [isOpen]);
 
-  // URL a compartir (página principal)
-  const shareUrl = window.location.origin;
+  // URL a compartir (específica del producto si hay productId)
+  const shareUrl = productId
+    ? `${window.location.origin}/producto/${productId}`
+    : window.location.href;
+
+  // Web Share API nativa (mejor experiencia en móvil)
+  const handleNativeShare = async () => {
+    if (navigator.share) {
+      try {
+        await navigator.share({
+          title: productName,
+          text: `¡Mira este producto de Esbelta! ${productName}`,
+          url: shareUrl
+        });
+        setIsOpen(false);
+        addNotification({
+          type: 'success',
+          message: 'Compartido exitosamente'
+        });
+      } catch (err) {
+        if (err.name !== 'AbortError') {
+          // Si falla, mostrar menú de opciones
+          setIsOpen(true);
+        }
+      }
+    } else {
+      // Si no hay Web Share API, mostrar menú
+      setIsOpen(!isOpen);
+    }
+  };
 
   // Funciones de compartir para cada red social
   const handleTikTokShare = () => {
@@ -137,7 +165,7 @@ const ShareButton = ({ productName = 'Producto Esbelta', productImage = '' }) =>
       <button
         onClick={(e) => {
           e.stopPropagation();
-          setIsOpen(!isOpen);
+          handleNativeShare();
         }}
         className="p-3 rounded-full bg-white text-esbelta-chocolate hover:scale-110 transition-transform shadow-lg border border-esbelta-sand"
         aria-label="Compartir producto"

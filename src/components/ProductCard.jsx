@@ -305,6 +305,7 @@ const ProductCard = ({ product, index }) => {
             <ShareButton
               productName={product.name}
               productImage={product.image}
+              productId={product.id}
             />
 
             <button

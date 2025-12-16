@@ -59,7 +59,7 @@ const ChatBot = () => {
     const initialMessage = {
       id: Date.now(),
       type: "bot",
-      content: `${greeting}, soy Valentina, tu asesora de Esbelta - Fajas Colombianas Premium.\n\nTenemos **-10% de descuento** en toda la colección.\n\n¿Qué zona del cuerpo quieres moldear? Te ayudo a seleccionar el producto perfecto para ti.`,
+      content: `${greeting}, soy Nicole, tu asesora de Esbelta - Fajas Colombianas Premium.\n\nTenemos **-10% de descuento** en toda la colección.\n\n¿Qué zona del cuerpo quieres moldear? Te ayudo a seleccionar el producto perfecto para ti.`,
       timestamp: new Date().toISOString(),
     };
 
@@ -244,14 +244,15 @@ const ChatBot = () => {
               <X className="w-6 h-6" />
             </div>
           ) : (
-            <div className="w-full h-full relative">
+            <div className="w-full h-full relative overflow-hidden">
               <video
-                src="/valentina-avatar.mp4"
+                src="/sofia-avatar.mp4"
                 autoPlay
                 loop
                 muted
                 playsInline
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover object-top scale-150"
+                style={{ objectPosition: 'center 15%' }}
               />
               <div className="absolute bottom-1 right-1 w-3 h-3 bg-green-500 border-2 border-white rounded-full animate-pulse"></div>
             </div>
@@ -287,12 +288,12 @@ const ChatBot = () => {
               <div className="relative z-10 flex items-center gap-4">
                 <div className="relative shrink-0">
                   <div className="w-14 h-14 rounded-full border-2 border-white/30 p-0.5 bg-white/10 backdrop-blur-sm">
-                    <img src="/avatar-1.jpg" alt="Valentina" className="w-full h-full rounded-full object-cover bg-white" />
+                    <img src="/nicole-avatar.png" alt="Nicole" className="w-full h-full rounded-full object-cover bg-white" />
                   </div>
                   <div className="absolute bottom-0 right-0 w-3.5 h-3.5 bg-green-400 border-2 border-white rounded-full"></div>
                 </div>
                 <div className="flex-1 text-white">
-                  <h3 className="font-heading font-bold text-xl leading-none mb-1">Valentina</h3>
+                  <h3 className="font-heading font-bold text-xl leading-none mb-1">Nicole</h3>
                   <p className="text-xs text-white/90 flex items-center gap-1.5">
                     <Sparkles className="w-3 h-3 text-yellow-200" />
                     Asesora de Estilo

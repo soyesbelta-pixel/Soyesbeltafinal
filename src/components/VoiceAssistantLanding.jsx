@@ -632,12 +632,23 @@ export const VoiceAssistant = ({ apiKey, onBuyProduct }) => {
 
   const handleStopSession = useCallback(async () => {
     setSessionState(SessionState.IDLE);
-    if (liveSessionRef.current) {
-      liveSessionRef.current.close();
-      liveSessionRef.current = null;
-    }
+
+    // Limpiar referencias ANTES de cerrar para evitar envíos mientras cierra
+    const sessionToClose = liveSessionRef.current;
+    liveSessionRef.current = null;
     sessionPromiseRef.current = null;
+
+    // Limpiar audio primero para detener el onaudioprocess
     cleanupAudioResources();
+
+    // Ahora cerrar la sesión de forma segura
+    if (sessionToClose) {
+      try {
+        sessionToClose.close();
+      } catch (e) {
+        console.debug('Session close skipped');
+      }
+    }
 
     if (currentInput || currentOutput) {
       setTranscript(prev => {
@@ -659,6 +670,12 @@ export const VoiceAssistant = ({ apiKey, onBuyProduct }) => {
     setSessionState(SessionState.CONNECTING);
 
     try {
+      // Verificar que la API key exista
+      if (!apiKey) {
+        throw new Error('API Key de Gemini no configurada. Verifica VITE_GEMINI_API_KEY en .env.local');
+      }
+
+      console.log('🎤 Iniciando conexión con Gemini Live API...');
       const ai = new GoogleGenAI({ apiKey });
 
       // Track which triggers have been detected this turn to avoid duplicates
@@ -748,6 +765,7 @@ export const VoiceAssistant = ({ apiKey, onBuyProduct }) => {
       };
 
       const onOpen = async (session) => {
+        console.log('✅ WebSocket conectado exitosamente');
         liveSessionRef.current = session;
         const AudioContextClass = window.AudioContext || window.webkitAudioContext;
         inputAudioContextRef.current = new AudioContextClass({ sampleRate: 16000 });
@@ -760,17 +778,31 @@ export const VoiceAssistant = ({ apiKey, onBuyProduct }) => {
         scriptProcessorRef.current = inputAudioContext.createScriptProcessor(4096, 1, 1);
 
         scriptProcessorRef.current.onaudioprocess = (audioProcessingEvent) => {
+          // Verificar que la sesión esté activa antes de enviar audio
+          if (!isMountedRef.current || !liveSessionRef.current || !sessionPromiseRef.current) {
+            return;
+          }
+
           const inputData = audioProcessingEvent.inputBuffer.getChannelData(0);
           const pcmBlob = createBlob(inputData);
-          if (sessionPromiseRef.current) {
-            sessionPromiseRef.current.then((session) => {
+
+          sessionPromiseRef.current.then((session) => {
+            // Doble verificación antes de enviar
+            if (!isMountedRef.current || !liveSessionRef.current) return;
+            try {
               session.sendRealtimeInput({ media: pcmBlob });
-            }).catch(err => {
-              if (!isMountedRef.current) return;
+            } catch (err) {
+              // Ignorar errores de WebSocket cerrado silenciosamente
+              console.debug('Audio send skipped - session closing');
+            }
+          }).catch(err => {
+            if (!isMountedRef.current) return;
+            // Solo mostrar error si no es por cierre de sesión
+            if (liveSessionRef.current) {
               setError("Hubo un problema al enviar el audio.");
               handleStopSession();
-            });
-          }
+            }
+          });
         };
 
         mediaStreamSourceRef.current.connect(scriptProcessorRef.current);
@@ -779,6 +811,7 @@ export const VoiceAssistant = ({ apiKey, onBuyProduct }) => {
       };
 
       const onError = (e) => {
+        console.error('❌ Error en WebSocket:', e);
         if (!isMountedRef.current) return;
         setError("Ocurrió un error en la conexión. Por favor, intenta de nuevo.");
         setSessionState(SessionState.ERROR);
@@ -786,6 +819,7 @@ export const VoiceAssistant = ({ apiKey, onBuyProduct }) => {
       };
 
       const onClose = () => {
+        console.log('🔌 WebSocket cerrado');
         cleanupAudioResources();
         if (!isMountedRef.current) return;
         if (sessionState !== SessionState.IDLE) {
@@ -793,10 +827,14 @@ export const VoiceAssistant = ({ apiKey, onBuyProduct }) => {
         }
       };
 
+      console.log('🔗 Conectando a Gemini Live API...');
       sessionPromiseRef.current = ai.live.connect({
         model: 'gemini-2.5-flash-native-audio-preview-09-2025',
         callbacks: {
-          onopen: () => sessionPromiseRef.current?.then(onOpen).catch(onError),
+          onopen: () => {
+            console.log('📡 Callback onopen ejecutado');
+            sessionPromiseRef.current?.then(onOpen).catch(onError);
+          },
           onmessage: onMessage,
           onerror: onError,
           onclose: onClose,
@@ -809,7 +847,10 @@ export const VoiceAssistant = ({ apiKey, onBuyProduct }) => {
           outputAudioTranscription: {},
         },
       });
+
+      console.log('⏳ Esperando conexión...');
       await sessionPromiseRef.current;
+      console.log('✅ Sesión establecida');
 
     } catch (err) {
       if (!isMountedRef.current) return;
