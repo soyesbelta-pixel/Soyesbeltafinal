@@ -290,32 +290,42 @@ const ProductCard = ({ product, index }) => {
             initial={{ opacity: 0 }}
             animate={{ opacity: (isHovered && !isMobile) || (isMobile && !hasVideoPreview && !videoActivated) ? 1 : 0 }}
             transition={{ duration: 0.2 }}
-            className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center gap-3"
-            style={{ pointerEvents: (isHovered && !isMobile) ? 'auto' : 'none' }}
+            className="absolute inset-0 bg-black bg-opacity-20 flex items-center justify-center gap-3 pointer-events-none"
           >
             <button
-              onClick={handleFavorite}
+              type="button"
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                handleFavorite(e);
+              }}
+              onTouchStart={(e) => e.stopPropagation()}
               className={`p-3 rounded-full ${
                 isFavorite ? 'bg-rose text-white' : 'bg-white text-ink'
-              } hover:scale-110 transition-transform`}
+              } hover:scale-110 active:scale-95 transition-transform pointer-events-auto touch-manipulation z-10`}
             >
-              <Heart className={`w-5 h-5 ${isFavorite ? 'fill-current' : ''}`} />
+              <Heart className={`w-5 h-5 pointer-events-none ${isFavorite ? 'fill-current' : ''}`} />
             </button>
 
-            <ShareButton
-              productName={product.name}
-              productImage={product.image}
-              productId={product.id}
-            />
+            <div className="pointer-events-auto z-10">
+              <ShareButton
+                productName={product.name}
+                productImage={product.image}
+                productId={product.id}
+              />
+            </div>
 
             <button
+              type="button"
               onClick={(e) => {
+                e.preventDefault();
                 e.stopPropagation();
                 setShowQuickView(true);
               }}
-              className="p-3 bg-white text-chocolate rounded-full hover:scale-110 transition-transform border border-line"
+              onTouchStart={(e) => e.stopPropagation()}
+              className="p-3 bg-white text-chocolate rounded-full hover:scale-110 active:scale-95 transition-transform border border-line pointer-events-auto touch-manipulation z-10"
             >
-              <Eye className="w-5 h-5" />
+              <Eye className="w-5 h-5 pointer-events-none" />
             </button>
           </motion.div>
         </div>

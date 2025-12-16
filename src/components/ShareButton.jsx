@@ -15,7 +15,7 @@ const ShareButton = ({ productName = 'Producto Esbelta', productImage = '', prod
   const menuRef = useRef(null);
   const { addNotification } = useStore();
 
-  // Cerrar menú al hacer click fuera
+  // Cerrar menú al hacer click/touch fuera
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (menuRef.current && !menuRef.current.contains(event.target)) {
@@ -25,10 +25,12 @@ const ShareButton = ({ productName = 'Producto Esbelta', productImage = '', prod
 
     if (isOpen) {
       document.addEventListener('mousedown', handleClickOutside);
+      document.addEventListener('touchstart', handleClickOutside);
     }
 
     return () => {
       document.removeEventListener('mousedown', handleClickOutside);
+      document.removeEventListener('touchstart', handleClickOutside);
     };
   }, [isOpen]);
 
@@ -37,30 +39,39 @@ const ShareButton = ({ productName = 'Producto Esbelta', productImage = '', prod
     ? `${window.location.origin}/producto/${productId}`
     : window.location.href;
 
-  // Web Share API nativa (mejor experiencia en móvil)
-  const handleNativeShare = async () => {
-    if (navigator.share) {
-      try {
-        await navigator.share({
-          title: productName,
-          text: `¡Mira este producto de Esbelta! ${productName}`,
-          url: shareUrl
-        });
-        setIsOpen(false);
-        addNotification({
-          type: 'success',
-          message: 'Compartido exitosamente'
-        });
-      } catch (err) {
-        if (err.name !== 'AbortError') {
-          // Si falla, mostrar menú de opciones
-          setIsOpen(true);
-        }
+  // Manejar compartir - directo al menú para máxima compatibilidad
+  const handleShareClick = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+
+    // Intentar Web Share API primero (móvil)
+    if (navigator.share && navigator.canShare) {
+      const shareData = {
+        title: productName,
+        text: `¡Mira este producto de Esbelta! ${productName}`,
+        url: shareUrl
+      };
+
+      if (navigator.canShare(shareData)) {
+        navigator.share(shareData)
+          .then(() => {
+            addNotification({
+              type: 'success',
+              message: 'Compartido exitosamente'
+            });
+          })
+          .catch((err) => {
+            // Si el usuario cancela, no hacer nada
+            if (err.name !== 'AbortError') {
+              setIsOpen(true);
+            }
+          });
+        return;
       }
-    } else {
-      // Si no hay Web Share API, mostrar menú
-      setIsOpen(!isOpen);
     }
+
+    // Fallback: mostrar menú de opciones
+    setIsOpen(!isOpen);
   };
 
   // Funciones de compartir para cada red social
@@ -163,15 +174,14 @@ const ShareButton = ({ productName = 'Producto Esbelta', productImage = '', prod
     <div className="relative" ref={menuRef}>
       {/* Botón principal de compartir */}
       <button
-        onClick={(e) => {
-          e.stopPropagation();
-          handleNativeShare();
-        }}
-        className="p-3 rounded-full bg-white text-esbelta-chocolate hover:scale-110 transition-transform shadow-lg border border-esbelta-sand"
+        type="button"
+        onClick={handleShareClick}
+        className="p-3 rounded-full bg-white text-esbelta-chocolate hover:scale-110 active:scale-95 transition-transform shadow-lg border border-esbelta-sand touch-manipulation cursor-pointer select-none"
         aria-label="Compartir producto"
         title="Compartir"
+        style={{ WebkitTapHighlightColor: 'transparent' }}
       >
-        <Share2 className="w-5 h-5" />
+        <Share2 className="w-5 h-5 pointer-events-none" />
       </button>
 
       {/* Menú desplegable */}
@@ -186,14 +196,19 @@ const ShareButton = ({ productName = 'Producto Esbelta', productImage = '', prod
             onClick={(e) => e.stopPropagation()}
           >
             <div className="py-2">
-              {shareOptions.map((option, index) => (
+              {shareOptions.map((option) => (
                 <button
                   key={option.name}
-                  onClick={option.onClick}
-                  className={`w-full px-4 py-3 flex items-center gap-3 transition-all ${option.color} text-left`}
+                  type="button"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    option.onClick();
+                  }}
+                  className={`w-full px-4 py-3 flex items-center gap-3 transition-all ${option.color} text-left touch-manipulation active:bg-gray-100`}
                 >
-                  <option.icon className="w-5 h-5" />
-                  <span className="font-body font-medium text-sm">{option.name}</span>
+                  <option.icon className="w-5 h-5 pointer-events-none" />
+                  <span className="font-body font-medium text-sm pointer-events-none">{option.name}</span>
                 </button>
               ))}
             </div>
