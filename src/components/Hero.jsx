@@ -85,25 +85,25 @@ const Hero = () => {
             {/* CTAs - Sin animaciones pesadas */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
               <a
-                href="https://wa.me/573147404023?text=Hola!%20Me%20interesa%20conocer%20sus%20productos%20de%20fajas%20colombianas%20🛍️"
+                href="https://wa.me/573122898771?text=Hola!%20Me%20interesa%20conocer%20sus%20productos%20de%20fajas%20colombianas%20🛍️"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center justify-center gap-2 text-lg group whatsapp-button font-body font-semibold py-3 px-6 rounded-full shadow-lg transition-transform hover:scale-[1.02] active:scale-95"
-                style={{ backgroundColor: '#D7BFA3', color: '#2C1E1E' }}
+                style={{ backgroundColor: '#F88379', color: 'white' }}
               >
-                <MessageCircle className="w-5 h-5" style={{ color: 'white' }} />
+                <MessageCircle className="w-5 h-5" />
                 Ver Catálogo por WhatsApp
-                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" style={{ color: 'white' }} />
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a
-                href="https://wa.me/573147404023?text=Hola!%20Quiero%20una%20asesoría%20personalizada%20para%20elegir%20la%20faja%20perfecta%20para%20mí%20💬"
+                href="https://wa.me/573122898771?text=Hola!%20Quiero%20una%20asesoría%20personalizada%20para%20elegir%20la%20faja%20perfecta%20para%20mí%20💬"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-body font-semibold py-3 px-6 rounded-full transition-transform hover:scale-[1.02] active:scale-95 inline-flex items-center justify-center gap-2 group shadow-lg"
-                style={{ backgroundColor: '#D7BFA3', color: '#2C1E1E' }}
+                style={{ backgroundColor: '#F88379', color: 'white' }}
               >
-                <MessageCircle className="w-5 h-5" style={{ color: 'white' }} />
+                <MessageCircle className="w-5 h-5" />
                 Asesoría Gratis por WhatsApp
               </a>
             </div>

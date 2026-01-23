@@ -129,26 +129,26 @@
 }
 
 @layer components {
-  /* Botón principal con Beige */
+  /* Botón principal con Coral */
   /* UPDATE: Shimmer Effect + Colored Shadow */
   .btn-primary {
     @apply py-3 px-6 rounded-full transform hover:-translate-y-0.5 transition-all duration-200 active:scale-95 relative overflow-hidden;
-    background-color: #D7BFA3;
-    color: #2C1E1E;
+    background-color: #F88379;
+    color: white;
     font-family: 'Manrope', sans-serif;
     font-weight: 600;
     letter-spacing: 2%;
     font-size: clamp(14px, 1.2vw, 16px);
     transition: all 120ms ease-out;
-    
-    /* Glow Effect (Sombra coloreada) */
-    box-shadow: 0 10px 25px -5px rgba(215, 191, 163, 0.4), 0 8px 10px -6px rgba(215, 191, 163, 0.4);
+
+    /* Glow Effect (Sombra coloreada coral) */
+    box-shadow: 0 10px 25px -5px rgba(248, 131, 121, 0.4), 0 8px 10px -6px rgba(248, 131, 121, 0.4);
   }
 
   .btn-primary:hover {
-    background-color: #C9B193;
+    background-color: #e07269;
     /* Stronger Glow on Hover */
-    box-shadow: 0 20px 25px -5px rgba(215, 191, 163, 0.5), 0 8px 10px -6px rgba(215, 191, 163, 0.5);
+    box-shadow: 0 20px 25px -5px rgba(248, 131, 121, 0.5), 0 8px 10px -6px rgba(248, 131, 121, 0.5);
   }
 
   /* Shimmer Animation Element */

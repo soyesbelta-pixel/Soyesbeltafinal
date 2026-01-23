@@ -27,8 +27,8 @@ const SiteFooter = () => {
           <div>
             <h4 className="font-bold mb-4">Contacto</h4>
             <ul className="space-y-2 text-sm text-esbelta-sand-light">
-              <li>📧 ventas@esbelta.com</li>
-              <li>📞 +57 300 123 4567</li>
+              <li>📧 soyesbelta@gmail.com</li>
+              <li>📞 +57 312 2898771</li>
               <li>📍 Medellín, Colombia</li>
             </ul>
           </div>

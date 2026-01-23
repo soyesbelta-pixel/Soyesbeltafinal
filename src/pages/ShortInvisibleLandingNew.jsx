@@ -1048,13 +1048,13 @@ const ShortInvisibleLandingNew = () => {
               </motion.button>
 
               <motion.a
-                href="https://wa.me/573147404023?text=Hola! Quiero información sobre el Kit Esbelta"
+                href="https://wa.me/573122898771?text=Hola! Quiero información sobre el Kit Esbelta"
                 target="_blank"
                 rel="noopener noreferrer"
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
-                className="flex-1 py-4 px-8 rounded-full font-body font-bold text-lg border-2 flex items-center justify-center gap-2 hover:bg-white transition-colors"
-                style={{ borderColor: '#2C1E1E', color: '#2C1E1E' }}
+                className="flex-1 py-4 px-8 rounded-full font-body font-bold text-lg flex items-center justify-center gap-2 shadow-xl transition-colors"
+                style={{ backgroundColor: '#F88379', color: 'white' }}
               >
                 <MessageCircle className="w-5 h-5" />
                 Hablar por WhatsApp
@@ -1084,14 +1084,14 @@ const ShortInvisibleLandingNew = () => {
 
       {/* WhatsApp Floating Button */}
       <motion.a
-        href="https://wa.me/573147404023?text=Hola! Tengo dudas sobre el Kit Esbelta"
+        href="https://wa.me/573122898771?text=Hola! Tengo dudas sobre el Kit Esbelta"
         target="_blank"
         rel="noopener noreferrer"
         initial={{ scale: 0 }}
         animate={{ scale: 1 }}
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
-        className="fixed bottom-8 right-8 z-50 bg-green-500 text-white p-4 rounded-full shadow-2xl hover:bg-green-600 transition-colors"
+        className="fixed bottom-8 right-8 z-50 bg-[#F88379] text-white p-4 rounded-full shadow-2xl hover:bg-[#e07269] transition-colors"
       >
         <MessageCircle className="w-8 h-8" />
       </motion.a>

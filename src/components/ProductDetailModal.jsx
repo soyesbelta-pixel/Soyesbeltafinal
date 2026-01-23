@@ -691,10 +691,10 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
                       ¿Tienes dudas? Habla con nuestras asesoras
                     </p>
                     <a
-                      href="https://wa.me/573147404023?text=Hola!%20Tengo%20dudas%20sobre%20cómo%20usar%20la%20faja"
+                      href="https://wa.me/573122898771?text=Hola!%20Tengo%20dudas%20sobre%20cómo%20usar%20la%20faja"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors"
+                      className="inline-flex items-center gap-2 bg-[#F88379] text-white px-6 py-3 rounded-lg hover:bg-[#e07269] transition-colors"
                     >
                       <MessageSquare className="w-5 h-5" />
                       Chat en WhatsApp
@@ -817,10 +817,10 @@ const ProductDetailModal = ({ product, isOpen, onClose }) => {
                         ¿No estás segura de tu talla? Nuestras asesoras pueden ayudarte
                       </p>
                       <a
-                        href="https://wa.me/573147404023?text=Hola!%20Necesito%20ayuda%20para%20elegir%20mi%20talla"
+                        href="https://wa.me/573122898771?text=Hola!%20Necesito%20ayuda%20para%20elegir%20mi%20talla"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-green-500 text-white px-6 py-3 rounded-lg hover:bg-green-600 transition-colors"
+                        className="inline-flex items-center gap-2 bg-[#F88379] text-white px-6 py-3 rounded-lg hover:bg-[#e07269] transition-colors"
                       >
                         <MessageSquare className="w-5 h-5" />
                         Asesoría Personalizada

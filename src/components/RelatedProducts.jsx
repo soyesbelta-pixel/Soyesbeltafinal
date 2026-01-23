@@ -144,7 +144,7 @@ const RelatedProducts = ({ excludeId = null, category = 'realce' }) => {
                     onClick={() => handleQuickAdd(product)}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="w-full bg-chocolate text-white py-3 px-4 rounded-full font-body font-bold shadow-xl hover:bg-chocolate-light transition-colors flex items-center justify-center gap-2"
+                    className="w-full bg-[#F88379] text-white py-3 px-4 rounded-full font-body font-bold shadow-xl hover:bg-[#e07269] transition-colors flex items-center justify-center gap-2"
                   >
                     <ShoppingCart className="w-5 h-5" />
                     AGREGAR AL CARRITO
