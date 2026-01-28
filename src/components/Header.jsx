@@ -207,13 +207,13 @@ const Header = ({ onCartOpen, onSizeAdvisorOpen, customCartCount }) => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         className={`fixed top-0 w-full z-40 transition-all duration-300 ${
-          scrolled ? 'bg-[#FDFBF7]/95 backdrop-blur-md shadow-sm py-2' : 'bg-[#FDFBF7] py-4'
+          scrolled ? 'bg-[#302627]/95 backdrop-blur-md shadow-sm py-2' : 'bg-[#302627] py-4'
         }`}
       >
         <div className="container mx-auto px-4 h-16 flex justify-between items-center">
           <button
             onClick={() => setShowMobileMenu(true)}
-            className="md:hidden p-2.5 bg-white rounded-full shadow-sm text-chocolate hover:bg-rose-50 hover:text-rose-500 transition-colors border border-chocolate/5"
+            className="md:hidden p-2.5 bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors border border-white/10"
           >
             <Menu className="w-5 h-5" />
           </button>
@@ -226,15 +226,15 @@ const Header = ({ onCartOpen, onSizeAdvisorOpen, customCartCount }) => {
             />
           </Link>
 
-          <nav className="hidden md:flex items-center gap-1 bg-white px-2 py-1.5 rounded-full shadow-sm border border-gray-100/50">
+          <nav className="hidden md:flex items-center gap-1 bg-white/10 px-2 py-1.5 rounded-full border border-white/20">
             {NAV_ITEMS.filter(i => i.to).map(item => (
               <Link
                 key={item.id}
                 to={item.to}
                 className={`px-5 py-2.5 rounded-full text-sm font-medium transition-all duration-200 ${
                   location.pathname === item.to
-                    ? 'bg-[#FAF9F6] text-chocolate font-bold shadow-inner'
-                    : 'text-chocolate/70 hover:text-chocolate hover:bg-gray-50'
+                    ? 'bg-white/20 text-white font-bold'
+                    : 'text-white/70 hover:text-white hover:bg-white/10'
                 }`}
               >
                 {item.label}
@@ -243,16 +243,16 @@ const Header = ({ onCartOpen, onSizeAdvisorOpen, customCartCount }) => {
           </nav>
 
           <div className="flex items-center gap-3">
-            <button className="hidden md:flex p-2.5 bg-white rounded-full shadow-sm text-chocolate hover:text-rose-500 transition-colors border border-gray-100/50">
+            <button className="hidden md:flex p-2.5 bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors border border-white/10">
               <Search className="w-5 h-5 stroke-[1.5]" />
             </button>
             <button
               onClick={onCartOpen}
-              className="p-2.5 bg-white rounded-full shadow-sm text-chocolate hover:text-rose-500 transition-colors relative border border-gray-100/50 group"
+              className="p-2.5 bg-white/10 rounded-full text-white hover:bg-white/20 transition-colors relative border border-white/10 group"
             >
               <ShoppingCart className="w-5 h-5 stroke-[1.5]" />
               {cartCount > 0 && (
-                <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-white group-hover:scale-110 transition-transform"></span>
+                <span className="absolute top-0 right-0 w-2.5 h-2.5 bg-rose-500 rounded-full border-2 border-[#302627] group-hover:scale-110 transition-transform"></span>
               )}
             </button>
           </div>

@@ -35,7 +35,7 @@ Carolina(M):"Realza sin incomodar" | Valentina(S):"No se marca, super natural" |
 2.Presenta: Kit completo, ahorro $39k, 51% OFF 48h
 3.Objeciones: Caro→3 productos premium+ahorro | Duda→garantía 7 días | Talla→pide medidas
 4.Urgencia: 48h promoción, stock limitado
-5.Cierra: Sugiere color, confirma talla, ofrece WhatsApp +57 314 740 4023
+5.Cierra: Sugiere color, confirma talla, ofrece WhatsApp +57 312 2898771
 
 ## TONO
 Usa "bella","amor" natural | Específica con números | Emociona: "Te va a quedar espectacular" | No presiones agresivo

@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Silueta Dorada (brand name: "Esbelta") is an e-commerce React application for selling Colombian shapewear ("fajas colombianas"). The app features a responsive product catalog, shopping cart, size advisor, and customer support tools.
+Silueta Dorada (brand name: "Esbelta") is an e-commerce React application for selling Colombian shapewear ("fajas colombianas"). The app features a responsive product catalog, shopping cart, size advisor, AI virtual try-on, and customer support chatbot.
 
 ## Development Commands
 
@@ -24,35 +24,66 @@ npm run lint
 # Preview production build
 npm run preview
 
-# Generate PWA icons (requires existing /public/icon.svg)
-node scripts/generate-icons.js
+# Database migrations
+npm run migrate:products              # Migrate products to Supabase
+npm run migrate:virtual-tryon         # Migrate virtual try-on products
+
+# Asset optimization
+npm run optimize:images               # Convert images to WebP (uses Sharp)
+npm run optimize:videos               # Compress videos (PowerShell, Windows only)
+
+# Utility scripts
+node scripts/generate-icons.js        # Generate PWA icons from /public/icon.svg
+node scripts/get-product-uuid.js      # Get UUID for a product
+```
+
+### Backend Server (Development)
+```bash
+cd server
+npm install
+npm start                             # Starts Express server on port 3001
 ```
 
 ## Architecture
 
 ### Tech Stack
-- **Frontend Framework**: React 19 with Vite 7
-- **Styling**: TailwindCSS with custom color palette
-- **State Management**: Zustand 5 with persist middleware (localStorage)
-- **Animations**: Framer Motion 12
+- **Frontend**: React 19, Vite 7, TailwindCSS, Framer Motion 12
+- **State**: Zustand 5 with localStorage persistence
 - **Routing**: React Router DOM 7
-- **Icons**: Lucide React
-- **PWA**: Vite Plugin PWA for progressive web app features
-- **Backend Services**: Supabase for database, auth, and storage
-- **AI Services**: OpenRouter API (chatbot), Google Gemini (Virtual Try-On)
+- **Backend**: Express server (dev) / Vercel Serverless (prod)
+- **Database**: Supabase (PostgreSQL)
+- **AI Services**: OpenRouter API (chatbot "Alexa"), Google Gemini (Virtual Try-On)
+- **Payments**: ePayco (Colombian gateway)
+- **Email**: Resend API
+- **PWA**: Vite Plugin PWA with offline caching
 
 ### Project Structure
-- `/src/components/` - React components (ProductCatalog, Cart, SizeAdvisor, ChatBot, etc.)
-- `/src/components/VirtualTryOn/` - AI-powered virtual try-on feature components
-- `/src/components/admin/` - Admin dashboard components (ProductManager, OrdersManager)
-- `/src/pages/` - Route-level page components
-- `/src/store/` - Zustand store configuration (useStore.js)
-- `/src/data/` - Product data and configurations (products.js, colombianLocations.js)
-- `/src/services/` - External service integrations
-- `/src/hooks/` - Custom React hooks (useEPayco.js)
-- `/src/utils/` - Utility functions (formValidation.js, exportToExcel.js)
-- `/public/` - Static assets including product images and videos
-- `/scripts/` - Build and migration scripts
+```
+src/
+├── components/           # React components
+│   ├── VirtualTryOn/     # AI virtual try-on feature
+│   └── admin/            # Admin dashboard (OrdersManager, ProductManager)
+├── pages/                # Route-level pages
+├── store/useStore.js     # Zustand global state
+├── services/             # API integrations (Supabase, OpenRouter, ePayco)
+├── data/                 # Static data (products.js, colombianLocations.js)
+├── hooks/                # Custom hooks (useEPayco.js)
+└── utils/                # Utilities (formValidation, exportToExcel)
+
+server/                   # Express backend (development)
+├── routes/               # API routes (chat, virtualTryon, emails)
+├── services/             # OpenRouter, Gemini services
+└── middleware/           # Rate limiter (20 req/min)
+
+api/                      # Vercel serverless functions (production)
+├── chat/                 # message.js, reset.js
+├── virtual-tryon/        # generate.js
+├── emails/               # send-order-confirmation.js, send-status-update.js
+└── epayco/               # confirmation.js
+
+scripts/                  # Build utilities and migrations
+public/                   # Static assets (product images, videos)
+```
 
 ### Key Components
 - **PageLayout**: Shared layout wrapper with Header, Footer, modals (Cart, SizeAdvisor, HelpCenter, VirtualTryOn, ChatBot)
@@ -125,7 +156,7 @@ The PWA configuration excludes large images from precaching to optimize performa
 2. Component files use .jsx extension
 3. Mobile-first responsive design approach
 4. Use Framer Motion for animations when adding new UI interactions
-5. WhatsApp integration for customer support: +57 314 740 4023
+5. WhatsApp integration for customer support: +57 312 2898771
 6. Custom event system for UI feedback (e.g., `window.dispatchEvent(new CustomEvent('cartSuccess'))`)
 7. Lazy loading for modals and heavy components via `React.lazy()`
 
@@ -154,12 +185,35 @@ The PWA configuration excludes large images from precaching to optimize performa
 
 ## Environment Variables
 
-Required in `.env.local`:
+### Frontend (`.env.local`)
 ```
 VITE_SUPABASE_URL=
 VITE_SUPABASE_ANON_KEY=
+VITE_USE_SUPABASE=true|false
+VITE_BACKEND_URL=http://localhost:3001  # Dev only
+VITE_EPAYCO_PUBLIC_KEY=
+VITE_GEMINI_API_KEY=
 ```
 
-Backend environment (for chatbot):
-- Development: `http://localhost:3001`
-- Production: Uses relative `/api/*` routes (Vercel serverless)
+### Backend (`server/.env`)
+```
+OPENROUTER_API_KEY=                     # Required for chatbot
+RESEND_API_KEY=                         # Required for emails
+SUPABASE_SERVICE_ROLE=                  # Admin operations
+FRONTEND_URL=http://localhost:5173      # CORS origin
+```
+
+### API Flow
+- **Development**: Frontend → Express server (`localhost:3001/api/*`)
+- **Production**: Frontend → Vercel Serverless (`/api/*` routes)
+
+## Key Services
+
+| Service | File | Purpose |
+|---------|------|---------|
+| supabaseClient | `src/services/supabaseClient.js` | Database client |
+| ProductService | `src/services/ProductService.js` | Product CRUD |
+| orderService | `src/services/orderService.js` | Order management |
+| VirtualTryOnService | `src/services/VirtualTryOnService.js` | AI garment visualization |
+| OpenRouterService | `src/services/OpenRouterService.js` | Chatbot API |
+| emailService | `src/services/emailService.js` | Transactional emails |

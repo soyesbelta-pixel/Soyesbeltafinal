@@ -800,7 +800,7 @@ function App() {
               </button>
 
               <a
-                href="https://wa.me/573147404023?text=Hola! Quiero información sobre el Kit Esbelta"
+                href="https://wa.me/573122898771?text=Hola! Quiero información sobre el Kit Esbelta"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex-1 py-4 px-8 rounded-full font-body font-bold text-lg border-2 border-esbelta-chocolate flex items-center justify-center gap-2 hover:bg-white transition-colors text-esbelta-chocolate"

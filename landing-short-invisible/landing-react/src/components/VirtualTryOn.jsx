@@ -546,7 +546,7 @@ export const VirtualTryOn = ({ onClose, apiKey }) => {
             <div className="space-y-4">
               {/* CTA Principal de WhatsApp */}
               <a
-                href={`https://wa.me/573147404023?text=${whatsappMessage}`}
+                href={`https://wa.me/573122898771?text=${whatsappMessage}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full py-4 px-6 rounded-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold text-lg hover:shadow-2xl hover:scale-105 transition-all text-center"

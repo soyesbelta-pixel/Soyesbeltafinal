@@ -119,7 +119,7 @@ Carolina(M):"Realza sin incomodar" | Valentina(S):"No se marca" | Isabella(XL):"
 ## CIERRE
 - Urgencia: "Esta promoción del 51% es solo por 48 horas, bella"
 - Facilidad: "Envío gratis y tienes 7 días de garantía"
-- WhatsApp: +57 314 740 4023 para pedidos
+- WhatsApp: +57 312 2898771 para pedidos
 
 ## TONO
 Cálida, usa "bella","amor" | Específica con números | Emociona: "Te va a quedar espectacular"

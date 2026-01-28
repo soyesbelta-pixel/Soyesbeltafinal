@@ -28,10 +28,10 @@ class OpenRouterService {
     this.responseCache.set('buenas tardes', 'Buenas tardes, soy Alexa de Esbelta. Nuestras fajas están con **-10% de descuento** y tenemos **stock limitado** en varios modelos. ¿Para qué ocasión necesitas la faja? (uso diario, evento especial, postparto)');
     this.responseCache.set('buenas noches', 'Buenas noches, soy Alexa de Esbelta. Te puedo ayudar a seleccionar la faja perfecta según tu necesidad. ¿Qué nivel de compresión buscas? (ligera, media, alta)');
     this.responseCache.set('gracias', 'Con gusto. Recuerda que tenemos **-10% de descuento**, **envío GRATIS** en compras superiores a $150,000 COP y nuestro **Probador Virtual con IA** para que veas cómo te quedaría antes de comprar. ¿Necesitas ayuda con algo más o procedo a enviarte el enlace de compra por WhatsApp?');
-    this.responseCache.set('adios', 'Hasta pronto. No olvides: **-10% de descuento** activo, **envío GRATIS** en compras +$150,000 COP, y puedes probarte las fajas virtualmente con IA (Menú → Probador Virtual). Para ordenar escríbenos al WhatsApp +57 314 740 4023');
+    this.responseCache.set('adios', 'Hasta pronto. No olvides: **-10% de descuento** activo, **envío GRATIS** en compras +$150,000 COP, y puedes probarte las fajas virtualmente con IA (Menú → Probador Virtual). Para ordenar escríbenos al WhatsApp +57 312 2898771');
     this.responseCache.set('precio', '💰 **Precios con descuento** (Pesos Colombianos):\n\n• **Brasier Corrector Postura**: $69,000 COP (-10%) ⭐ 4.7/5\n• **Cachetero Control Abdomen Alto**: $75,000 COP (-10%) ⭐ 4.8/5\n• **Short Levanta Cola Magic**: $79,000 COP (-10%) ⭐ 4.8/5\n• **Short Levanta Glúteo Invisible**: $79,000 COP (-10%) ⭐ 4.9/5\n• **Cinturilla Premium Reloj Arena**: $165,000 COP (-10%) ⭐ 4.8/5\n\n✅ **Envío GRATIS** en compras +$150,000\n\n¿Cuál se ajusta a tu necesidad?');
     this.responseCache.set('envio', '🚚 **Política de Envíos:**\n\n✅ Cobertura: Todo el país\n✅ **Envío GRATIS** en compras superiores a $150,000 COP\n✅ Tiempo: 3-5 días hábiles\n✅ Rastreo incluido\n✅ Empaque discreto\n\n¿Ya identificaste qué producto necesitas o quieres que te asesore?');
-    this.responseCache.set('whatsapp', '📱 **WhatsApp: +57 314 740 4023**\n\nPor WhatsApp puedes:\n✅ Completar tu pedido directo\n✅ Resolver dudas sobre tallas\n✅ Ver fotos reales de clientes\n✅ Recibir asesoría personalizada\n\n¿Prefieres que te recomiende un producto aquí primero antes de contactar por WhatsApp?');
+    this.responseCache.set('whatsapp', '📱 **WhatsApp: +57 312 2898771**\n\nPor WhatsApp puedes:\n✅ Completar tu pedido directo\n✅ Resolver dudas sobre tallas\n✅ Ver fotos reales de clientes\n✅ Recibir asesoría personalizada\n\n¿Prefieres que te recomiende un producto aquí primero antes de contactar por WhatsApp?');
     this.responseCache.set('probador virtual', '🌟 **Probador Virtual con Inteligencia Artificial**\n\nVentaja exclusiva de Esbelta:\n✅ Pruébate las fajas virtualmente ANTES de comprar\n✅ Sube tu foto y visualiza el resultado en segundos\n✅ Tecnología IA avanzada\n\n📍 Ubicación: Menú principal → "Probador Virtual"\n\n¿Te recomiendo un producto específico para que lo pruebes virtualmente?');
     this.responseCache.set('probar', '🌟 **Cómo usar el Probador Virtual:**\n\n1️⃣ Ve al menú principal\n2️⃣ Selecciona "Probador Virtual"\n3️⃣ Sube tu foto\n4️⃣ Elige el producto\n5️⃣ Visualiza el resultado\n\n¿Quieres que te recomiende qué faja probar según tu necesidad?');
   }
@@ -129,10 +129,10 @@ class OpenRouterService {
 
       // Manejo de errores
       if (error.message.includes('Failed to fetch')) {
-        return 'Lo siento, no puedo conectarme al servidor en este momento. Por favor verifica tu conexión o contáctanos por WhatsApp al +57 314 740 4023 😊';
+        return 'Lo siento, no puedo conectarme al servidor en este momento. Por favor verifica tu conexión o contáctanos por WhatsApp al +57 312 2898771 😊';
       }
 
-      return 'Lo siento, tuve un problema al procesar tu mensaje. ¿Podrías intentarlo de nuevo? Mientras tanto, puedes contactarnos por WhatsApp al +57 314 740 4023 😊';
+      return 'Lo siento, tuve un problema al procesar tu mensaje. ¿Podrías intentarlo de nuevo? Mientras tanto, puedes contactarnos por WhatsApp al +57 312 2898771 😊';
     }
   }
 

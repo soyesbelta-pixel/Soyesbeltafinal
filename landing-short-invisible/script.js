@@ -208,7 +208,7 @@ function agregarAlCarrito() {
     alert('¡Kit agregado al carrito! 🛍️\n\nEn la versión final, esto se integrará con tu sistema de pagos.');
 
     // Ejemplo de integración con WhatsApp (alternativa)
-    // window.open('https://wa.me/573147404023?text=Hola! Quiero comprar el Kit Esbelta Short Invisible', '_blank');
+    // window.open('https://wa.me/573122898771?text=Hola! Quiero comprar el Kit Esbelta Short Invisible', '_blank');
 
     // Ejemplo de tracking con Google Analytics (si lo tienes configurado)
     // gtag('event', 'add_to_cart', {

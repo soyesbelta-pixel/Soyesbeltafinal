@@ -185,7 +185,7 @@ router.post('/send-status-update', async (req, res) => {
               </p>
 
               <div style="text-align: center; margin: 30px 0;">
-                <a href="https://wa.me/573147404023"
+                <a href="https://wa.me/573122898771"
                    style="display: inline-block; background-color: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold;">
                   💬 Contactar por WhatsApp
                 </a>
@@ -198,7 +198,7 @@ router.post('/send-status-update', async (req, res) => {
                 © ${new Date().getFullYear()} Esbelta - Fajas Colombianas Premium
               </p>
               <p style="color: white; margin: 10px 0 0 0; font-size: 12px; opacity: 0.7;">
-                📞 +57 314 740 4023 | ✉️ pedidos@soyesbelta.com
+                📞 +57 312 2898771 | ✉️ pedidos@soyesbelta.com
               </p>
             </div>
           </div>
@@ -412,7 +412,7 @@ function generateOrderConfirmationHTML({
               <p style="color: #424242; line-height: 1.8; margin: 0 0 20px 0; font-size: 15px;">
                 Estamos aquí para ayudarte con cualquier pregunta sobre tu pedido.
               </p>
-              <a href="https://wa.me/573147404023"
+              <a href="https://wa.me/573122898771"
                  style="display: inline-block; background-color: #25D366; color: white; padding: 15px 35px; text-decoration: none; border-radius: 50px; font-weight: bold; font-size: 16px; box-shadow: 0 4px 8px rgba(37, 211, 102, 0.3);">
                 📱 Contactar por WhatsApp
               </a>
@@ -432,7 +432,7 @@ function generateOrderConfirmationHTML({
               © ${new Date().getFullYear()} Esbelta. Todos los derechos reservados.
             </p>
             <p style="color: rgba(255,255,255,0.7); margin: 10px 0 0 0; font-size: 13px;">
-              📞 +57 314 740 4023 | ✉️ pedidos@esbelta.com
+              📞 +57 312 2898771 | ✉️ pedidos@esbelta.com
             </p>
           </div>
         </div>

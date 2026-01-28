@@ -107,7 +107,7 @@ export default async function handler(req, res) {
               </p>
 
               <div style="text-align: center; margin: 30px 0;">
-                <a href="https://wa.me/573147404023"
+                <a href="https://wa.me/573122898771"
                    style="display: inline-block; background-color: #25D366; color: white; padding: 15px 30px; text-decoration: none; border-radius: 8px; font-weight: bold;">
                   💬 Contactar por WhatsApp
                 </a>
@@ -120,7 +120,7 @@ export default async function handler(req, res) {
                 © ${new Date().getFullYear()} Esbelta - Fajas Colombianas Premium
               </p>
               <p style="color: white; margin: 10px 0 0 0; font-size: 12px; opacity: 0.7;">
-                📞 +57 314 740 4023 | ✉️ pedidos@soyesbelta.com
+                📞 +57 312 2898771 | ✉️ pedidos@soyesbelta.com
               </p>
             </div>
           </div>

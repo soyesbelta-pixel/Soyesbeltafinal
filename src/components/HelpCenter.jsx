@@ -200,7 +200,7 @@ const HelpCenter = ({ isOpen, onClose }) => {
                   Nuestros asesores están disponibles para ayudarte
                 </p>
                 <a
-                  href="https://wa.me/573147404023?text=Hola!%20Necesito%20ayuda%20con%20las%20fajas%20💬"
+                  href="https://wa.me/573122898771?text=Hola!%20Necesito%20ayuda%20con%20las%20fajas%20💬"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-white text-green-600 px-6 py-3 rounded-full font-bold hover:bg-gray-100 transition-colors"
